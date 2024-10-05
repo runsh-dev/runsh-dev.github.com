@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.CroFxgLA.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"tech/react.md","filePath":"tech/react.md","lastUpdated":1727614744000}'),c={name:"tech/react.md"};function r(o,s,n,d,p,_){return a(),t("div")}const f=e(c,[["render",r]]);export{m as __pageData,f as default};
