@@ -8,10 +8,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: '技术', link: '/tech/index.md' },
-      { text: 'Examples', link: '/markdown-examples' },
-      { text: 'API', link: '/api-examples' },
-      
+      { text: 'Post', link: '/posts/index.md' },
       { text: 'About', link: '/about' }
     ],
 
@@ -48,17 +45,17 @@ export default defineConfig({
         deletePrefix: "docs", // 删除路径前缀
         sideBarResolved(data) {
           // 接收完整的侧边栏对象以进行自定义修改
-        //   console.log(data);
+          // console.log(data);
           return data;
         },
         sideBarItemsResolved(data) {
           // 接收完整的侧边栏 subItem 对象以进行自定义修改
-          console.log(data);
+          // console.log(data);
           return data;
         },
         beforeCreateSideBarItems(data) {
           // 获取生成侧边栏子项之前扫描的文件名列表。如果要对侧边栏数据进行排序，建议使用
-        //   console.log(data);
+          console.log("test=>>>>>",data);
           return data;
         },
         titleFromFile: false, // 从文件中提取标题
