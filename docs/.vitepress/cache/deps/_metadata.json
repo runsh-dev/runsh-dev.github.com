@@ -1,40 +1,40 @@
 {
-  "hash": "a44e4307",
-  "configHash": "ed9facfa",
-  "lockfileHash": "b2814a08",
-  "browserHash": "f578344d",
+  "hash": "01b834fb",
+  "configHash": "53793fa0",
+  "lockfileHash": "44551d32",
+  "browserHash": "6957101f",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "028f36a5",
+      "fileHash": "5795ace2",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "10cc04c5",
+      "fileHash": "8e256999",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
-      "src": "../../../../node_modules/@vueuse/core/index.mjs",
+      "src": "../../../../node_modules/vitepress/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "b76821ff",
+      "fileHash": "4ed54e06",
       "needsInterop": false
     },
-    "@theme/index": {
-      "src": "../../../../node_modules/vitepress/dist/client/theme-default/index.js",
-      "file": "@theme_index.js",
-      "fileHash": "76e749d4",
+    "@giscus/vue": {
+      "src": "../../../../node_modules/@giscus/vue/dist/index.mjs",
+      "file": "@giscus_vue.js",
+      "fileHash": "5460aeda",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-QTXVCCMP": {
-      "file": "chunk-QTXVCCMP.js"
-    },
     "chunk-ONFHZ5OS": {
       "file": "chunk-ONFHZ5OS.js"
+    },
+    "giscus-aTimukGI-KUYRML7I": {
+      "file": "giscus-aTimukGI-KUYRML7I.js"
     }
   }
 }

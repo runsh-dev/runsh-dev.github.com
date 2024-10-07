@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./chunks/framework.CroFxgLA.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"tech/测试项目.md","filePath":"tech/测试项目.md","lastUpdated":1727614744000}'),c={name:"tech/测试项目.md"};function r(o,s,n,_,d,p){return a(),t("div")}const f=e(c,[["render",r]]);export{m as __pageData,f as default};

@@ -1,13 +1,23 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
-
+layoutClass: 'm-home-layout'
 
 ---
 
-## 从此处开始
+<style>
+/*爱的魔力转圈圈*/
+.m-home-layout .image-src:hover {
+  transform: translate(-50%, -50%) rotate(666turn);
+  transition: transform 59s 1s cubic-bezier(0.3, 0, 0.8, 1);
+}
 
-故事从这里开始 &nbsp; [About](/about)
+.m-home-layout .details small {
+  opacity: 0.8;
+}
 
-今天的晚霞真美 &nbsp; ![晚霞](./publish/sunset.jpg "sunset")
-
+.m-home-layout .item:last-child .details {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+}
+</style>
