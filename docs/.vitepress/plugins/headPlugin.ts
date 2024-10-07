@@ -9,7 +9,7 @@ export async function transformHeadMeta(context: TransformContext): Promise<Head
     const url = addBase(pageData.relativePath.slice(0, -3)) + '.html';
     const title = pageData.title || context.title;
     const description = pageData.description || context.description;
-    const image = pageData.frontmatter.cover || "https://yaoyao.io/img/logo/logo.jpeg";
+    const image = pageData.frontmatter.cover || "https://cdnv2.ruguoapp.com/FgUG5YDx1bS0JhSSUK8Z-QlXdYgPv3.jpg";
     const type = context.page.startsWith('/blog') ? 'article' : 'website';
 
     const ogUrl: HeadConfig = ["meta", {property: "og:url", content: url}];
@@ -28,7 +28,7 @@ export async function transformHeadMeta(context: TransformContext): Promise<Head
 }
 
 export function addBase(relativePath: string) {
-    const host = 'https://yaoyao.io'
+    const host = 'https://runsh.dev'
     if (relativePath && relativePath.startsWith('/')) {
         return host + relativePath
     } else {
