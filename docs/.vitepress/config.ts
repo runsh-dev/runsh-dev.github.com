@@ -72,7 +72,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/jianjiade' }
+      { icon: 'github', link: 'https://github.com/runsh-dev' }
     ],
 
     footer: {
