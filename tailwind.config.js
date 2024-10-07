@@ -8,7 +8,11 @@ export default {
     './docs/.vitepress/**/*.{html,js,vue,ts,md}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        default: "SN pro, sans-serif, system-ui",
+      },
+    },
   },
   plugins: [
     tailwindTypography,

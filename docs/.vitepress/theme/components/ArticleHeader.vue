@@ -11,7 +11,7 @@ const date = computed(() => frontmatter.value.date);
 const headerStyle = () => {
   const style = {} as { backgroundImage: string };
   if (
-      frontmatter.value.layout === "Post" &&
+      frontmatter.value.layout === "doc" &&
       frontmatter.value.useHeaderImage &&
       frontmatter.value.headerImage
   ) {
@@ -24,8 +24,6 @@ const headerStyle = () => {
 <template>
   <div
       class="article-header"
-      :style="headerStyle()"
-      :class="{ 'use-image': frontmatter.useHeaderImage }"
   >
     <div
         v-if="frontmatter.useHeaderImage && frontmatter.headerMask"
@@ -34,9 +32,14 @@ const headerStyle = () => {
     />
 
     <div class="article-header-content">
-      <h1 class="font-bold text-4xl">
+      <h1 class="font-bold text-3xl text-center">
         {{ frontmatter.title }}
       </h1>
+      <div class="header-img-body" v-if="frontmatter && frontmatter.headerImage">
+        <img class="header-img-cover" :src="frontmatter.headerImage" alt="computed" />
+      </div>
+
+
       <p v-if="frontmatter.subtitle" class="article-subtitle">
         {{ frontmatter.title }}
       </p>
@@ -56,5 +59,19 @@ const headerStyle = () => {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+.header-img-body{
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 10px;
+  height: 400px;
+  overflow: hidden;
+
+}
+.header-img-cover{
+  width: 100%; /* 图片宽度为容器宽度的100% */
+  height: 100%; /* 图片高度为容器高度的100% */
+  object-fit: cover; /* 保持比例，覆盖容器，裁剪超出部分 */
+  object-position: center; /* 显示图片的中间部分 */
 }
 </style>
