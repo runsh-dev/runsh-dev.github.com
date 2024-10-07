@@ -13,7 +13,7 @@ const posts = computed(() => {
 <template>
   <div class="mx-auto relative max-w-6xl">
     <div v-if="posts"
-         class="grid gap-3 grid-cols-1 sm:grid-cols-3 sm:gap-6">
+         class="grid gap-3 grid-cols-1 ">
       <PostCard
           v-for="post in posts"
           :post="post"
