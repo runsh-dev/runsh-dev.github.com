@@ -34,7 +34,7 @@ const headerStyle = () => {
     />
 
     <div class="article-header-content">
-      <h1 class="font-bold text-2xl">
+      <h1 class="font-bold text-4xl">
         {{ frontmatter.title }}
       </h1>
       <p v-if="frontmatter.subtitle" class="article-subtitle">
@@ -46,7 +46,8 @@ const headerStyle = () => {
 
 <style scoped>
 .article-header{
-  height: 200px;
+  //height: 200px;
+  padding-bottom: 20px;
 }
 .article-header.use-image {
   max-width: 100%;
