@@ -22,8 +22,8 @@ defineProps<{
         <h2 class="font-bold text-zinc-700 text-base dark:text-zinc-300">
           {{ post.title }}
         </h2>
-        <div class="text-zinc-500 line-clamp-3" style="word-break:break-word">
-          {{ post.excerpt || "这是描述。。。" }}
+        <div class="text-zinc-500 line-clamp-3" style="word-break:break-word" v-html="post.excerpt || '' ">
+
         </div>
       </div>
       <!--元数据-->
