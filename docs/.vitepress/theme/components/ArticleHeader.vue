@@ -36,7 +36,7 @@ const headerStyle = () => {
         {{ frontmatter.title }}
       </h1>
       <div class="header-img-body" v-if="frontmatter && frontmatter.headerImage">
-        <img class="header-img-cover" :src="frontmatter.headerImage" alt="computed" />
+        <img class="header-img-cover" :src="withBase(frontmatter.headerImage)" alt="computed" />
       </div>
 
 
