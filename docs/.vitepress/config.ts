@@ -76,8 +76,8 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2012-present JianJiaDe'
+      message: 'Released under the CC BY-NC-ND 3.0',
+      copyright: 'Copyright © 1990-present runsh.dev'
     },
     lastUpdated: {
       text: 'Updated at',
