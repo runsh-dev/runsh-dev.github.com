@@ -10,7 +10,7 @@ import {rss} from "./genFeed.js";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "BLOG",
+  title: "Life & BLOG",
   description: "人生不是一场赛跑，而是一场旅行。",
   cleanUrls: true,
   buildEnd: rss,

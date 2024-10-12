@@ -11,7 +11,7 @@ const posts = computed(() => {
 </script>
 
 <template>
-  <div class="mx-auto relative max-w-6xl">
+  <div class="mx-auto relative max-w-4xl">
     <div v-if="posts"
          class="grid gap-3 grid-cols-1 ">
       <PostCard
