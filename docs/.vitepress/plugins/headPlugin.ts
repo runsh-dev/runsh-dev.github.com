@@ -2,10 +2,24 @@ import type {HeadConfig, TransformContext} from "vitepress";
 
 
 export async function transformHeadMeta(context: TransformContext): Promise<HeadConfig[]> {
+    
+    // console.log('transformHeadMeta', context.assets);
+    const fontsList = context.assets.filter(item => item.endsWith('.woff2'));
+    
+    // console.log('fontsList', fontsList);
+    console.log('transformHeadMeta', fontsList);
+
+    //字体
+    const headFontsList:any = [];
+
+    fontsList.forEach(font => {
+        headFontsList.push(["link", {rel: "preload", as: "font", href: font, type: "font/woff2", crossorigin: "anonymous"}]);
+    })
+
 
     const {pageData} = context;
     const head: HeadConfig[] = [];
-
+    
     const url = addBase(pageData.relativePath.slice(0, -3)) + '.html';
     const title = pageData.title || context.title;
     const description = pageData.description || context.description;
@@ -24,6 +38,7 @@ export async function transformHeadMeta(context: TransformContext): Promise<Head
     const twitterDescription: HeadConfig = ["meta", {name: "twitter:description", content: description}];
     const twitterImage: HeadConfig = ["meta", {name: "twitter:image", content: image}];
     head.push(twitterCard, twitterTitle, twitterImage, twitterDescription);
+    head.push(...headFontsList);
     return head;
 }
 

@@ -49,7 +49,6 @@ const headerStyle = () => {
 
 <style scoped>
 .article-header{
-  //height: 200px;
   padding-bottom: 20px;
 }
 .article-header.use-image {

@@ -1,11 +1,12 @@
 import {Theme} from "vitepress";
-import DefaultTheme from "vitepress/theme";
+import DefaultTheme from "vitepress/theme-without-fonts";
 // @ts-ignore
 import Layout from "./components/Layout.vue";
 import Archives from "./components/Archives.vue";
 import Comment from "./components/Comment.vue";
 import {customConfigProvider} from "./configProvider";
 import './styles/index.scss';
+import './styles/myfonts.scss';
 
 export default {
   ...DefaultTheme,
