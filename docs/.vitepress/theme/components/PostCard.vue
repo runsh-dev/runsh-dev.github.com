@@ -22,17 +22,17 @@ defineProps<{
         {{ post.date.defaultDate }}
       </time>
     </div>
-    <div class="mx-3 w-full min-w-0 flex flex-col text-sm space-y-2 h-auto border-b border-gray-100 py-8">
+    <div class="mx-3 w-full min-w-0 flex flex-col text-sm space-y-2 h-auto border-b border-gray-300 py-8 dark:border-gray-700">
       <!--标题-->
       <div class="space-y-3 line-clamp-3 ">
         <h2 class="font-bold text-zinc-700 text-xl dark:text-zinc-300">
           {{ post.title }}
         </h2>
         <div class="flex mt-4" v-if="post.tags[0]">
-          <p class="flex items-center text-white bg-black px-4  rounded-[28px] h-[28px]">{{ post.tags[0]}}</p>
+          <p class="flex items-center text-white bg-black px-4  rounded-[28px] h-[28px] dark:bg-zinc-300 dark:text-black">{{ post.tags[0]}}</p>
         </div>
 
-        <div class="text-zinc-500 line-clamp-3" style="word-break:break-word" v-html="post.excerpt || '' "></div>
+        <div v-if="post.excerpt" class="text-zinc-500 line-clamp-3" style="word-break:break-word" v-html="post.excerpt || '' "></div>
       </div>
       <!--元数据-->
         <!--      <div class="h-[20px]"></div>-->
