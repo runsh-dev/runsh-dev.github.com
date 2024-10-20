@@ -77,7 +77,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the CC BY-NC-ND 3.0',
-      copyright: 'Copyright © 1990-present runsh.dev'
+      copyright: 'Copyright © 1990-2024 RUNSH.DEV'
     },
     lastUpdated: {
       text: 'Updated at',
