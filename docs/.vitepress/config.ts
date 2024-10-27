@@ -43,6 +43,9 @@ export default defineConfig({
       },
     ],
     [
+      'link', {'rel':'icon', href:'/favicon.ico'}
+    ],
+    [
       'script',
       {async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-7RNEYK877J'}
     ],
