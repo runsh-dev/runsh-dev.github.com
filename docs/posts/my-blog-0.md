@@ -6,7 +6,7 @@ tags:
   - 彩虹
   - 桂花
 
-headerImage: 'https://cdnv2.ruguoapp.com/Fv2OkdsdSpD3AVd5cJLILeIQ0WkDv3.jpg'
+headerImage: 'https://cdnv2.ruguoapp.com/FkS0t7XtY4hFujeZrXxjkLSGvhIwv3.jpg'
 header-img: /publish/sunset.jpg
 useHeaderImage: true
 headerMask: 0.4
