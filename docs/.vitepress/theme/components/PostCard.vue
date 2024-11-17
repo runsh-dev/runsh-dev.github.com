@@ -32,7 +32,7 @@ defineProps<{
           <p class="flex items-center text-white bg-black px-4  rounded-[28px] h-[28px] dark:bg-zinc-300 dark:text-black">{{ post.tags[0]}}</p>
         </div>
 
-        <div v-if="post.excerpt" class="text-zinc-500 line-clamp-3" style="word-break:break-word" v-html="post.excerpt || '' "></div>
+        <div v-if="post.excerpt" class="text-zinc-500 line-clamp-7" style="word-break:break-word" v-html="post.excerpt || '' "></div>
       </div>
       <!--元数据-->
         <!--      <div class="h-[20px]"></div>-->
