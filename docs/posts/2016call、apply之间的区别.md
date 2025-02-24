@@ -1,9 +1,11 @@
 ---
-layout: doc
 title: call、apply之间的区别
-date: 2015-08-05 22:22:29
-categories: 
+date: 2015-08-05
+tags:
+    - Thinking
+  
 ---
+
 在ECMAScript3 给Function的原型定义了2个方法，它们分别是Function.prototype.call和Function.prototype.apply。在实际的开发中，特别是一些函数式编程中，call和apply方法尤其有用。反正我也不懂什么是函数式编程，最近也出了一本JavaScript方面的书，函数式编程，有兴趣的同学可以自己去看看。<!--more-->
 ### call和apply的区别
 先说下call和apply的区别，区别嘛，好像就是传入的参数不同，它的作用完全是一样的。
