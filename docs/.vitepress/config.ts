@@ -7,6 +7,7 @@ import {
 import {transformHeadMeta} from "./plugins/headPlugin.js";
 import {ThemeConfig} from "./theme/config.js";
 import {rss} from "./genFeed.js";
+import { generateSidebar } from "./utils/sidebar.js";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -67,11 +68,22 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      {text: "Articles", link: "/articles"},
+      { text: "Articles", link: "/articles" },
+	    { text: "Lab", link: "/lab" },
       { text: 'About', link: '/about' }
     ],
 
     sidebar: {
+      '/lab': [
+        {
+          text: 'Lab',
+          items: [
+            { text: 'Guide', link: '/posts/guide' },
+            { text: 'Tech', link: '/posts/tech' }
+          ]
+        }
+      ],
+      ...generateSidebar()
     },
 
     socialLinks: [
