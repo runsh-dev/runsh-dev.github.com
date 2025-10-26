@@ -3,15 +3,57 @@
     font-weight: 300;
     src: url('../fonts/SNPro-Light.woff2') format('woff2');
   }
-   
+
   @font-face {
     font-family: "SN Pro";
     font-weight: 400;
     src: url('../fonts/SNPro-Regular.woff2') format('woff2');
   }
-   
+
   @font-face {
     font-family: "SN Pro";
     font-weight: 500;
     src: url('../fonts/SNPro-Medium.woff2') format('woff2');
   }
+
+/* source-han-serif-sc-regular [4] */
+@font-face {
+  font-family: 'source-han-serif-sc-regular';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/SourceHanSerifSC-Regular.otf') format("opentype");
+  }
+
+@font-face {
+  font-family: 'source-han-serif-sc-Light';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/SourceHanSerifSC-Light.otf') format("opentype");
+}
+
+@font-face {
+  font-family: 'source-han-serif-sc-medium';
+  font-style: normal;
+
+  font-display: swap;
+  src: url('../fonts/SourceHanSerifSC-Medium.otf') format("opentype");
+}
+
+@font-face {
+  font-family: 'source-han-serif-sc-semibold';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/SourceHanSerifSC-SemiBold.otf') format("opentype");
+}
+
+@font-face {
+  font-family: 'source-han-serif-sc-heavy';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/SourceHanSerifSC-Heavy.otf') format("opentype");
+}
+

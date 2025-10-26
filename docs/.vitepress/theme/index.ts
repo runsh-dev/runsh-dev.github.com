@@ -7,7 +7,7 @@ import Comment from "./components/Comment.vue";
 import {customConfigProvider} from "./configProvider";
 import './styles/index.scss';
 import './styles/myfonts.scss';
-
+import './styles/custom.css'
 export default {
   ...DefaultTheme,
   Layout: customConfigProvider(Layout),

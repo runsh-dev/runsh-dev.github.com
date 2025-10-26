@@ -4,6 +4,7 @@
     --vp-sidebar-width: 260px;
   }
   .VPNav {
+    font-family: "SN Pro", serif;
     // 借鉴 https://cn.vuejs.org 的处理
     .DocSearch-Button-Placeholder {
       display: none;
@@ -19,6 +20,7 @@
 
 @media (max-width: 992px) {
   .VPNav {
+    font-family: "SN Pro", serif;
     .VPNavBar {
       padding-left: 24px;
       padding-right: 24px;
@@ -34,6 +36,7 @@
 
 @media (max-width: 800px) {
   .VPNav {
+    font-family: "SN Pro", serif;
     .VPNavBarSearch {
       padding-left: 16px;
     }

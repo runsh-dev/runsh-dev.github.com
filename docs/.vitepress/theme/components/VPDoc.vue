@@ -95,6 +95,7 @@ const pageName = computed(() =>
     display: flex;
     justify-content: center;
     max-width: 992px;
+    font-family: "SN Pro", serif;
   }
 
   .VPDoc:not(.has-sidebar) .content {
@@ -106,6 +107,7 @@ const pageName = computed(() =>
   .VPDoc .container {
     display: flex;
     justify-content: center;
+    font-family: "SN Pro", serif;
   }
 
   .VPDoc .aside {
@@ -120,12 +122,14 @@ const pageName = computed(() =>
 
   .VPDoc:not(.has-sidebar) .container {
     max-width: 1104px;
+    font-family: "SN Pro", serif;
   }
 }
 
 .container {
   margin: 0 auto;
   width: 100%;
+  font-family: "SN Pro", serif;
 }
 
 .aside {
