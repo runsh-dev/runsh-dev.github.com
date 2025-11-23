@@ -78,6 +78,12 @@ export default defineConfig({
         {
           text: 'Lab',
           items: [
+            { text: '2020', link: '/posts/2020' },
+            { text: '2021', link: '/posts/2021' },
+            { text: '2022', link: '/posts/2022' },
+            { text: '2023', link: '/posts/2023' },
+            { text: '2024', link: '/posts/2024' },
+            { text: '2025', link: '/posts/2025' },
             { text: 'Guide', link: '/posts/guide' },
             { text: 'Tech', link: '/posts/tech' }
           ]
