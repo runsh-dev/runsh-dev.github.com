@@ -109,6 +109,11 @@ function generateSidebarItems(dirPath: string, basePath: string = ''): SidebarIt
 export function generateSidebar() {
   const postsDir1 = join(process.cwd(), 'docs', 'posts', 'guide')
   const postsDir2 = join(process.cwd(), 'docs', 'posts', 'tech')
+  const posts2020Dir = join(process.cwd(), 'docs', 'posts', '2020')
+  const posts2021Dir = join(process.cwd(), 'docs', 'posts', '2021')
+  const posts2022Dir = join(process.cwd(), 'docs', 'posts', '2022')
+  const posts2023Dir = join(process.cwd(), 'docs', 'posts', '2023')
+  const posts2024Dir = join(process.cwd(), 'docs', 'posts', '2024')
   return {
     '/posts/guide/': [
       {
@@ -121,23 +126,23 @@ export function generateSidebar() {
       },
       {
         text: '2020',
-        items: generateSidebarItems(postsDir1, '/posts/2020/')
+        items: generateSidebarItems(posts2020Dir, '/posts/2020/')
       },
       {
         text: '2021',
-        items: generateSidebarItems(postsDir1, '/posts/2021/')
+        items: generateSidebarItems(posts2021Dir, '/posts/2021/')
       },
       {
         text: '2022',
-        items: generateSidebarItems(postsDir1, '/posts/2022/')
+        items: generateSidebarItems(posts2022Dir, '/posts/2022/')
       },
       {
         text: '2023',
-        items: generateSidebarItems(postsDir1, '/posts/2023/')
+        items: generateSidebarItems(posts2023Dir, '/posts/2023/')
       },
       {
         text: '2024',
-        items: generateSidebarItems(postsDir1, '/posts/2024/')
+        items: generateSidebarItems(posts2024Dir, '/posts/2024/')
       }
     ],
     '/posts/tech/': [
@@ -151,23 +156,23 @@ export function generateSidebar() {
       },
       {
         text: '2020',
-        items: generateSidebarItems(postsDir1, '/posts/2020/')
+        items: generateSidebarItems(posts2020Dir, '/posts/2020/')
       },
       {
         text: '2021',
-        items: generateSidebarItems(postsDir1, '/posts/2021/')
+        items: generateSidebarItems(posts2021Dir, '/posts/2021/')
       },
       {
         text: '2022',
-        items: generateSidebarItems(postsDir1, '/posts/2022/')
+        items: generateSidebarItems(posts2022Dir, '/posts/2022/')
       },
       {
         text: '2023',
-        items: generateSidebarItems(postsDir1, '/posts/2023/')
+        items: generateSidebarItems(posts2023Dir, '/posts/2023/')
       },
       {
         text: '2024',
-        items: generateSidebarItems(postsDir1, '/posts/2024/')
+        items: generateSidebarItems(posts2024Dir, '/posts/2024/')
       }
     ],
     '/posts/2020/': [
@@ -181,23 +186,23 @@ export function generateSidebar() {
       },
       {
         text: '2020',
-        items: generateSidebarItems(postsDir1, '/posts/2020/')
+        items: generateSidebarItems(posts2020Dir, '/posts/2020/')
       },
       {
         text: '2021',
-        items: generateSidebarItems(postsDir1, '/posts/2021/')
+        items: generateSidebarItems(posts2021Dir, '/posts/2021/')
       },
       {
         text: '2022',
-        items: generateSidebarItems(postsDir1, '/posts/2022/')
+        items: generateSidebarItems(posts2022Dir, '/posts/2022/')
       },
       {
         text: '2023',
-        items: generateSidebarItems(postsDir1, '/posts/2023/')
+        items: generateSidebarItems(posts2023Dir, '/posts/2023/')
       },
       {
         text: '2024',
-        items: generateSidebarItems(postsDir1, '/posts/2024/')
+        items: generateSidebarItems(posts2024Dir, '/posts/2024/')
       }
     ],
     '/posts/2021/': [
@@ -211,23 +216,23 @@ export function generateSidebar() {
       },
       {
         text: '2020',
-        items: generateSidebarItems(postsDir1, '/posts/2020/')
+        items: generateSidebarItems(posts2020Dir, '/posts/2020/')
       },
       {
         text: '2021',
-        items: generateSidebarItems(postsDir1, '/posts/2021/')
+        items: generateSidebarItems(posts2021Dir, '/posts/2021/')
       },
       {
         text: '2022',
-        items: generateSidebarItems(postsDir1, '/posts/2022/')
+        items: generateSidebarItems(posts2022Dir, '/posts/2022/')
       },
       {
         text: '2023',
-        items: generateSidebarItems(postsDir1, '/posts/2023/')
+        items: generateSidebarItems(posts2023Dir, '/posts/2023/')
       },
       {
         text: '2024',
-        items: generateSidebarItems(postsDir1, '/posts/2024/')
+        items: generateSidebarItems(posts2024Dir, '/posts/2024/')
       }
     ],
     '/posts/2022/': [
@@ -241,23 +246,23 @@ export function generateSidebar() {
       },
       {
         text: '2020',
-        items: generateSidebarItems(postsDir1, '/posts/2020/')
+        items: generateSidebarItems(posts2020Dir, '/posts/2020/')
       },
       {
         text: '2021',
-        items: generateSidebarItems(postsDir1, '/posts/2021/')
+        items: generateSidebarItems(posts2021Dir, '/posts/2021/')
       },
       {
         text: '2022',
-        items: generateSidebarItems(postsDir1, '/posts/2022/')
+        items: generateSidebarItems(posts2022Dir, '/posts/2022/')
       },
       {
         text: '2023',
-        items: generateSidebarItems(postsDir1, '/posts/2023/')
+        items: generateSidebarItems(posts2023Dir, '/posts/2023/')
       },
       {
         text: '2024',
-        items: generateSidebarItems(postsDir1, '/posts/2024/')
+        items: generateSidebarItems(posts2024Dir, '/posts/2024/')
       }
     ],
     '/posts/2023/': [
@@ -271,23 +276,23 @@ export function generateSidebar() {
       },
       {
         text: '2020',
-        items: generateSidebarItems(postsDir1, '/posts/2020/')
+        items: generateSidebarItems(posts2020Dir, '/posts/2020/')
       },
       {
         text: '2021',
-        items: generateSidebarItems(postsDir1, '/posts/2021/')
+        items: generateSidebarItems(posts2021Dir, '/posts/2021/')
       },
       {
         text: '2022',
-        items: generateSidebarItems(postsDir1, '/posts/2022/')
+        items: generateSidebarItems(posts2022Dir, '/posts/2022/')
       },
       {
         text: '2023',
-        items: generateSidebarItems(postsDir1, '/posts/2023/')
+        items: generateSidebarItems(posts2023Dir, '/posts/2023/')
       },
       {
         text: '2024',
-        items: generateSidebarItems(postsDir1, '/posts/2024/')
+        items: generateSidebarItems(posts2024Dir, '/posts/2024/')
       }
     ],
     '/posts/2024/': [
@@ -301,23 +306,23 @@ export function generateSidebar() {
       },
       {
         text: '2020',
-        items: generateSidebarItems(postsDir1, '/posts/2020/')
+        items: generateSidebarItems(posts2020Dir, '/posts/2020/')
       },
       {
         text: '2021',
-        items: generateSidebarItems(postsDir1, '/posts/2021/')
+        items: generateSidebarItems(posts2021Dir, '/posts/2021/')
       },
       {
         text: '2022',
-        items: generateSidebarItems(postsDir1, '/posts/2022/')
+        items: generateSidebarItems(posts2022Dir, '/posts/2022/')
       },
       {
         text: '2023',
-        items: generateSidebarItems(postsDir1, '/posts/2023/')
+        items: generateSidebarItems(posts2023Dir, '/posts/2023/')
       },
       {
         text: '2024',
-        items: generateSidebarItems(postsDir1, '/posts/2024/')
+        items: generateSidebarItems(posts2024Dir, '/posts/2024/')
       }
     ]
   }
