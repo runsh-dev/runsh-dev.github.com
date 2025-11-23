@@ -118,6 +118,26 @@ export function generateSidebar() {
       {
         text: 'Tech',
         items: generateSidebarItems(postsDir2, '/posts/tech/')
+      },
+      {
+        text: '2020',
+        items: generateSidebarItems(postsDir1, '/posts/2020/')
+      },
+      {
+        text: '2021',
+        items: generateSidebarItems(postsDir1, '/posts/2021/')
+      },
+      {
+        text: '2022',
+        items: generateSidebarItems(postsDir1, '/posts/2022/')
+      },
+      {
+        text: '2023',
+        items: generateSidebarItems(postsDir1, '/posts/2023/')
+      },
+      {
+        text: '2024',
+        items: generateSidebarItems(postsDir1, '/posts/2024/')
       }
     ],
     '/posts/tech/': [
@@ -129,6 +149,176 @@ export function generateSidebar() {
         text: 'Tech',
         items: generateSidebarItems(postsDir2, '/posts/tech/')
       },
+      {
+        text: '2020',
+        items: generateSidebarItems(postsDir1, '/posts/2020/')
+      },
+      {
+        text: '2021',
+        items: generateSidebarItems(postsDir1, '/posts/2021/')
+      },
+      {
+        text: '2022',
+        items: generateSidebarItems(postsDir1, '/posts/2022/')
+      },
+      {
+        text: '2023',
+        items: generateSidebarItems(postsDir1, '/posts/2023/')
+      },
+      {
+        text: '2024',
+        items: generateSidebarItems(postsDir1, '/posts/2024/')
+      }
+    ],
+    '/posts/2020/': [
+      {
+        text: 'Guide',
+        items: generateSidebarItems(postsDir1, '/posts/guide/')
+      },
+      {
+        text: 'Tech',
+        items: generateSidebarItems(postsDir2, '/posts/tech/')
+      },
+      {
+        text: '2020',
+        items: generateSidebarItems(postsDir1, '/posts/2020/')
+      },
+      {
+        text: '2021',
+        items: generateSidebarItems(postsDir1, '/posts/2021/')
+      },
+      {
+        text: '2022',
+        items: generateSidebarItems(postsDir1, '/posts/2022/')
+      },
+      {
+        text: '2023',
+        items: generateSidebarItems(postsDir1, '/posts/2023/')
+      },
+      {
+        text: '2024',
+        items: generateSidebarItems(postsDir1, '/posts/2024/')
+      }
+    ],
+    '/posts/2021/': [
+      {
+        text: 'Guide',
+        items: generateSidebarItems(postsDir1, '/posts/guide/')
+      },
+      {
+        text: 'Tech',
+        items: generateSidebarItems(postsDir2, '/posts/tech/')
+      },
+      {
+        text: '2020',
+        items: generateSidebarItems(postsDir1, '/posts/2020/')
+      },
+      {
+        text: '2021',
+        items: generateSidebarItems(postsDir1, '/posts/2021/')
+      },
+      {
+        text: '2022',
+        items: generateSidebarItems(postsDir1, '/posts/2022/')
+      },
+      {
+        text: '2023',
+        items: generateSidebarItems(postsDir1, '/posts/2023/')
+      },
+      {
+        text: '2024',
+        items: generateSidebarItems(postsDir1, '/posts/2024/')
+      }
+    ],
+    '/posts/2022/': [
+      {
+        text: 'Guide',
+        items: generateSidebarItems(postsDir1, '/posts/guide/')
+      },
+      {
+        text: 'Tech',
+        items: generateSidebarItems(postsDir2, '/posts/tech/')
+      },
+      {
+        text: '2020',
+        items: generateSidebarItems(postsDir1, '/posts/2020/')
+      },
+      {
+        text: '2021',
+        items: generateSidebarItems(postsDir1, '/posts/2021/')
+      },
+      {
+        text: '2022',
+        items: generateSidebarItems(postsDir1, '/posts/2022/')
+      },
+      {
+        text: '2023',
+        items: generateSidebarItems(postsDir1, '/posts/2023/')
+      },
+      {
+        text: '2024',
+        items: generateSidebarItems(postsDir1, '/posts/2024/')
+      }
+    ],
+    '/posts/2023/': [
+      {
+        text: 'Guide',
+        items: generateSidebarItems(postsDir1, '/posts/guide/')
+      },
+      {
+        text: 'Tech',
+        items: generateSidebarItems(postsDir2, '/posts/tech/')
+      },
+      {
+        text: '2020',
+        items: generateSidebarItems(postsDir1, '/posts/2020/')
+      },
+      {
+        text: '2021',
+        items: generateSidebarItems(postsDir1, '/posts/2021/')
+      },
+      {
+        text: '2022',
+        items: generateSidebarItems(postsDir1, '/posts/2022/')
+      },
+      {
+        text: '2023',
+        items: generateSidebarItems(postsDir1, '/posts/2023/')
+      },
+      {
+        text: '2024',
+        items: generateSidebarItems(postsDir1, '/posts/2024/')
+      }
+    ],
+    '/posts/2024/': [
+      {
+        text: 'Guide',
+        items: generateSidebarItems(postsDir1, '/posts/guide/')
+      },
+      {
+        text: 'Tech',
+        items: generateSidebarItems(postsDir2, '/posts/tech/')
+      },
+      {
+        text: '2020',
+        items: generateSidebarItems(postsDir1, '/posts/2020/')
+      },
+      {
+        text: '2021',
+        items: generateSidebarItems(postsDir1, '/posts/2021/')
+      },
+      {
+        text: '2022',
+        items: generateSidebarItems(postsDir1, '/posts/2022/')
+      },
+      {
+        text: '2023',
+        items: generateSidebarItems(postsDir1, '/posts/2023/')
+      },
+      {
+        text: '2024',
+        items: generateSidebarItems(postsDir1, '/posts/2024/')
+      }
     ]
   }
 }
