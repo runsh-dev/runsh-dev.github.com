@@ -9,7 +9,7 @@ declare const categoriesMeta: { name: string; text: string; count: number }[];
 
 export {data, categoriesMeta};
 
-export default createContentLoader("/*/*.md", {
+export default createContentLoader("posts/**/*.md", {
   excerpt: true,
   transform(raw): PostPageFrontmatter[] {
     return raw

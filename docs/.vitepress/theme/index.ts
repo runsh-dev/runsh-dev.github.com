@@ -4,6 +4,7 @@ import DefaultTheme from "vitepress/theme-without-fonts";
 import Layout from "./components/Layout.vue";
 import Archives from "./components/Archives.vue";
 import Comment from "./components/Comment.vue";
+import YearIndex from "./components/YearIndex.vue";
 import {customConfigProvider} from "./configProvider";
 import './styles/index.scss';
 import './styles/myfonts.scss';
@@ -14,5 +15,6 @@ export default {
   enhanceApp({app}) {
     app.component("Archives", Archives);
     app.component("Comment", Comment);
+    app.component("YearIndex", YearIndex);
   },
 } as Theme;

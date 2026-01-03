@@ -8,6 +8,10 @@ import {transformHeadMeta} from "./plugins/headPlugin.js";
 import {ThemeConfig} from "./theme/config.js";
 import {rss} from "./genFeed.js";
 import { generateSidebar } from "./utils/sidebar.js";
+import { generateMissingIndexFiles } from "./plugins/generateIndex.js";
+
+// 在配置加载时生成缺失的 index.md 文件
+generateMissingIndexFiles();
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
