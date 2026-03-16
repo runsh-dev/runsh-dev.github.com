@@ -1,5 +1,5 @@
 ---
-title: 2026
+title: 
 date: 2026-03-01
 tags:
   - Daily
