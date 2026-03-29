@@ -1,7 +1,4 @@
 body {
     font-size: 18px;
 }
-:root {
-    --vp-font-family-base: "Noto Serif SC", serif;
-    --vp-font-family-mono: "Noto Serif SC", monospace; /* 如果标题也想用宋体 */
-}
+
