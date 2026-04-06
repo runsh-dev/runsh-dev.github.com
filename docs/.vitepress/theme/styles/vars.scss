@@ -4,7 +4,9 @@
  */
 :root {
   // font vars
-  --vp-font-family-base: "Noto Serif SC", "SN Pro", "SN Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  --vp-font-family-base: "SN Pro", "SN Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --content-container-font-family-base: -apple-system, BlinkMacSystemFont, "Noto Serif SC", "SN Pro", "SN Pro", "Segoe UI", Roboto, Oxygen,
   Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --vp-font-family-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }

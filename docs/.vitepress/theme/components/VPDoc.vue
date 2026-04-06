@@ -201,6 +201,7 @@ const pageName = computed(() =>
 
 .content-container {
   margin: 0 auto;
+  font-family: var(--content-container-font-family-base), serif
 }
 
 .VPDoc.has-aside .content-container {
