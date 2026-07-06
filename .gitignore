@@ -7,3 +7,4 @@ dist/
 .deploy*/
 _multiconfig.yml
 .idea
+.obsidian
