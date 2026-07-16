@@ -1,0 +1,354 @@
+html {
+  background: var(--yohaku-paper);
+}
+
+body {
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 16% 0%, var(--yohaku-accent-soft), transparent 28rem),
+    var(--yohaku-paper);
+  color: var(--yohaku-neutral-9);
+  font-family: var(--vp-font-family-base);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.57;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--yohaku-accent-soft);
+  color: var(--yohaku-neutral-10);
+}
+
+a {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.VPContent {
+  background: transparent;
+}
+
+.VPDoc {
+  padding-top: 56px;
+}
+
+.VPDoc .content-container {
+  max-width: 720px;
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: 720px;
+}
+
+.vp-doc {
+  font-family: var(--content-container-font-family-base);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--yohaku-neutral-9);
+}
+
+.vp-doc p,
+.vp-doc summary {
+  margin: 1.35em 0;
+}
+
+.vp-doc h2 {
+  margin-top: 2.7em;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.vp-doc h3 {
+  margin-top: 2.2em;
+}
+
+.vp-doc a {
+  color: var(--yohaku-neutral-10);
+  text-decoration-line: underline;
+  text-decoration-color: var(--yohaku-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.vp-doc a:hover {
+  color: var(--yohaku-accent);
+}
+
+.vp-doc strong {
+  font-weight: 500;
+  color: var(--yohaku-neutral-10);
+}
+
+.vp-doc blockquote {
+  margin: 2em 0;
+  border-left: 3px solid var(--yohaku-accent);
+  padding: 2px 0 2px 20px;
+  color: var(--yohaku-neutral-7);
+}
+
+.vp-doc blockquote > p {
+  font-size: inherit;
+  color: inherit;
+}
+
+.vp-doc hr {
+  margin: 3em 0;
+  border: 0;
+  border-top: 1px solid var(--yohaku-border);
+}
+
+.vp-doc img {
+  border-radius: 8px;
+  box-shadow: var(--yohaku-shadow);
+}
+
+.vp-doc table {
+  border: 1px solid var(--yohaku-border);
+  border-radius: 8px;
+}
+
+.vp-doc tr:nth-child(2n) {
+  background: var(--yohaku-neutral-1);
+}
+
+.vp-doc th {
+  font-weight: 500;
+  color: var(--yohaku-neutral-10);
+}
+
+.custom-block {
+  border: 1px solid var(--yohaku-border);
+  border-radius: 8px;
+  background: var(--yohaku-neutral-1);
+  box-shadow: none;
+}
+
+.VPDocFooter {
+  margin-top: 64px;
+  border-top: 1px solid var(--yohaku-border);
+  padding-top: 24px;
+}
+
+.VPFooter {
+  border-top: 1px solid var(--yohaku-border);
+  background: transparent;
+}
+
+.VPFooter .message,
+.VPFooter .copyright {
+  font-size: 12px;
+  color: var(--yohaku-neutral-6);
+}
+
+.VPDocAsideOutline .outline-title {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yohaku-neutral-6);
+}
+
+.VPDocAsideOutline .outline-link {
+  font-size: 12px;
+  color: var(--yohaku-neutral-7);
+}
+
+.VPDocAsideOutline .outline-link.active {
+  color: var(--yohaku-accent);
+}
+
+.yohaku-post-page {
+  background: var(--yohaku-paper);
+}
+
+.yohaku-post-page .VPSidebar {
+  display: none;
+}
+
+.yohaku-post-page .vp-doc {
+  font-size: 17.5px;
+  line-height: 1.8;
+}
+
+.yohaku-post-page .vp-doc > div > p:first-of-type::first-letter {
+  float: left;
+  padding: 4px 8px 0 0;
+  font-size: 2.6em;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--yohaku-accent);
+}
+
+.yohaku-post-page .vp-doc p,
+.yohaku-post-page .vp-doc summary {
+  margin: 0 0 1.05em;
+}
+
+.yohaku-post-page .vp-doc h2 {
+  margin: 32px 0 12px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+
+.yohaku-post-page .vp-doc h2::before {
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  margin-right: 10px;
+  background: var(--yohaku-accent);
+  vertical-align: 0.34em;
+  content: "";
+}
+
+.yohaku-post-page .vp-doc h3 {
+  margin: 28px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.yohaku-post-page .vp-doc em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--yohaku-accent);
+}
+
+.yohaku-post-page .vp-doc blockquote {
+  margin: 20px 0;
+  border-left-width: 2px;
+  padding: 4px 0 4px 16px;
+  font-style: italic;
+}
+
+.yohaku-post-page .vp-doc ul {
+  margin: 16px 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.yohaku-post-page .vp-doc ul > li {
+  position: relative;
+  margin: 6px 0;
+  padding-left: 18px;
+}
+
+.yohaku-post-page .vp-doc ul > li::before {
+  position: absolute;
+  left: 0;
+  color: var(--yohaku-neutral-6);
+  content: "—";
+}
+
+.yohaku-post-page .vp-doc ol {
+  margin: 16px 0 20px;
+  padding-left: 1.5em;
+}
+
+.yohaku-post-page .vp-doc li::marker {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.85em;
+  color: var(--yohaku-neutral-6);
+}
+
+.yohaku-post-page .vp-doc div[class*="language-"] {
+  margin: 22px 0;
+}
+
+.yohaku-post-page .vp-doc img {
+  margin: 24px auto;
+}
+
+.yohaku-post-page .VPDocFooter {
+  margin-top: 40px;
+  padding-top: 16px;
+}
+
+.yohaku-post-page .VPDocFooter .edit-info {
+  border-top: 1px solid var(--yohaku-border);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.yohaku-post-page .VPDocFooter .VPLastUpdated {
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--yohaku-neutral-6);
+}
+
+.yohaku-post-page .VPDocFooter .prev-next {
+  gap: 24px;
+  margin-top: 4px;
+  padding-top: 18px;
+}
+
+.yohaku-post-page .VPDocFooter .pager-link {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 4px 0;
+}
+
+.yohaku-post-page .VPDocFooter .pager-link:hover {
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+
+.yohaku-post-page .VPDocFooter .desc {
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--yohaku-neutral-6);
+}
+
+.yohaku-post-page .VPDocFooter .title {
+  margin-top: 4px;
+  font-family: var(--content-container-font-family-base);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--yohaku-neutral-9);
+}
+
+@media (min-width: 960px) {
+  .yohaku-post-page .VPContent.has-sidebar {
+    margin: var(--vp-layout-top-height, 0px) auto 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    background:
+      radial-gradient(circle at 12% 0%, var(--yohaku-accent-soft), transparent 20rem),
+      var(--yohaku-paper);
+  }
+
+  .VPDoc {
+    padding-top: 32px;
+  }
+
+  .vp-doc {
+    font-size: 15px;
+    line-height: 1.78;
+  }
+
+  .yohaku-post-page .vp-doc {
+    font-size: 17px;
+    line-height: 1.78;
+  }
+
+  .yohaku-post-page .vp-doc > div > p:first-of-type::first-letter {
+    font-size: 2.35em;
+  }
+}

@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import {
   markdownImagePlugin,
   markdownCodeEnhancePlugin
@@ -9,9 +11,25 @@ import {ThemeConfig} from "./theme/config.js";
 import {rss} from "./genFeed.js";
 import { generateSidebar } from "./utils/sidebar.js";
 import { generateMissingIndexFiles } from "./plugins/generateIndex.js";
+import { isPostDetail } from "./utils/page.js";
 
 // 在配置加载时生成缺失的 index.md 文件
 generateMissingIndexFiles();
+
+const getReadingStats = (source: string) => {
+  const content = source
+    .replace(/^---[\s\S]*?---/, '')
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/[#>*_`~[\]()-]/g, ' ')
+
+  const chineseCharacters = content.match(/[\u3400-\u9fff]/g)?.length || 0
+  const latinWords = content.match(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g)?.length || 0
+  const wordCount = chineseCharacters + latinWords
+  const minutes = Math.max(1, Math.ceil(chineseCharacters / 400 + latinWords / 200))
+
+  return { wordCount, minutes }
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -24,7 +42,10 @@ export default defineConfig({
   base: "/",
   markdown: {
     lineNumbers: false,
-    theme: "nord",
+    theme: {
+      light: "github-light",
+      dark: "github-dark",
+    },
     config: (md) => {
       md.use(markdownImagePlugin);
       md.use(markdownCodeEnhancePlugin);
@@ -65,10 +86,31 @@ export default defineConfig({
     ],
 	  ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
 	  ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-	  ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap' }]
+	  ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500&display=swap' }]
   ],
   transformHead: (context) => {
     return transformHeadMeta(context)
+  },
+  transformPageData(pageData, { siteConfig }) {
+    if (!isPostDetail(pageData.relativePath)) return
+
+    const source = readFileSync(join(siteConfig.srcDir, pageData.filePath), 'utf-8')
+    const { wordCount, minutes } = getReadingStats(source)
+    const pageClass = [pageData.frontmatter.pageClass, 'yohaku-post-page']
+      .filter(Boolean)
+      .join(' ')
+
+    return {
+      frontmatter: {
+        ...pageData.frontmatter,
+        sidebar: false,
+        aside: false,
+        outline: false,
+        pageClass,
+        readingTime: minutes,
+        wordCount
+      }
+    }
   },
 
   themeConfig: {
@@ -102,6 +144,16 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/runsh-dev' }
     ],
+
+    outline: {
+      level: [2, 3],
+      label: 'CONTENTS'
+    },
+
+    docFooter: {
+      prev: '上一篇',
+      next: '下一篇'
+    },
 
     footer: {
       message: 'Released under the CC BY-NC-ND 3.0',

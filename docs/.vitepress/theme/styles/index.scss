@@ -1,27 +1,22 @@
-// tailwindcss
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-//// custom styles // 自定义样式
+
 @import "./vars.scss";
-//// rainbow code highlighter theme Home Hero
-@import './layouts/rainbow.scss';
 @import "./layouts/md.scss";
 @import "./layouts/footer.scss";
 @import "./layouts/content.scss";
 @import "./layouts/articles.scss";
-
 @import "./components/vp-home.scss";
 @import "./components/code.scss";
 @import "./components/vp-doc.scss";
-
-@import "./mode/light.scss";
 @import "./layouts/nav.scss";
+@import "./yohaku.scss";
 
 *,
-*:after,
-*:before {
-  border-color: var(--border-color);
+*::after,
+*::before {
+  border-color: var(--yohaku-border);
 }
 
 html.dark {

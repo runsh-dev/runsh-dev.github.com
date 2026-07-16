@@ -1,132 +1,126 @@
 /**
- * Customize default theme styling by overriding CSS variables:
- * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ * Yohaku theme tokens.
+ *
+ * The VitePress variables below deliberately mirror the design contract in
+ * skills/design-system: warm paper in light mode, neutral charcoal in dark
+ * mode, one restrained ume accent, and three typography roles.
  */
 :root {
-  // font vars
-  --vp-font-family-base: "SN Pro", "SN Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-  Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  --content-container-font-family-base: -apple-system, BlinkMacSystemFont, "Noto Serif SC", "SN Pro", "SN Pro", "Segoe UI", Roboto, Oxygen,
-  Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  --vp-font-family-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-}
+  --yohaku-paper: #fefefb;
+  --yohaku-neutral-1: #f9f8f5;
+  --yohaku-neutral-2: #f0efeb;
+  --yohaku-neutral-3: #e3e1db;
+  --yohaku-neutral-4: #d0cec6;
+  --yohaku-neutral-5: #a8a69f;
+  --yohaku-neutral-6: #787670;
+  --yohaku-neutral-7: #5c5a55;
+  --yohaku-neutral-8: #403f3a;
+  --yohaku-neutral-9: #24231f;
+  --yohaku-neutral-10: #141312;
+  --yohaku-accent: #c56473;
+  --yohaku-accent-soft: rgba(197, 100, 115, 0.1);
+  --yohaku-border: rgba(36, 35, 31, 0.12);
+  --yohaku-shadow: 0 4px 24px rgba(36, 35, 31, 0.05);
 
+  --vp-font-family-base: "SN Pro", "PingFang SC", "Microsoft YaHei",
+    "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --content-container-font-family-base: "Noto Serif SC",
+    "source-han-serif-sc-regular", "Source Han Serif SC", "Songti SC",
+    "STSong", serif;
+  --vp-font-family-mono: "SFMono-Regular", "Cascadia Code", "JetBrains Mono",
+    "Fira Code", Consolas, Monaco, "Noto Sans Mono CJK SC", monospace;
 
-:root {
-  --vp-c-brand-lightest: var(--vp-c-brand);
-}
+  --vp-c-bg: var(--yohaku-paper);
+  --vp-c-bg-alt: var(--yohaku-neutral-1);
+  --vp-c-bg-elv: var(--yohaku-paper);
+  --vp-c-bg-soft: var(--yohaku-neutral-2);
+  --vp-c-divider: var(--yohaku-border);
+  --vp-c-gutter: var(--yohaku-neutral-2);
+  --vp-c-border: var(--yohaku-neutral-4);
 
-/**
- * Component: Button
- * -------------------------------------------------------------------------- */
-:root {
-  --vp-button-brand-border: var(--vp-c-brand-light);
-  --vp-button-brand-text: var(--vp-c-white);
-  --vp-button-brand-bg: var(--vp-c-brand);
-  --vp-button-brand-hover-border: var(--vp-c-brand-light);
-  --vp-button-brand-hover-text: var(--vp-c-white);
-  --vp-button-brand-hover-bg: var(--vp-c-brand-light);
-  --vp-button-brand-active-border: var(--vp-c-brand-light);
-  --vp-button-brand-active-text: var(--vp-c-white);
-  --vp-button-brand-active-bg: var(--vp-button-brand-bg);
-}
+  --vp-c-text-1: var(--yohaku-neutral-9);
+  --vp-c-text-2: var(--yohaku-neutral-7);
+  --vp-c-text-3: var(--yohaku-neutral-6);
 
-/**
- * Component: Home
- * -------------------------------------------------------------------------- */
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(
-                  120deg,
-                  var(--vp-c-brand) 30%,
-                  var(--vp-c-brand-next)
-  );
-  --vp-home-hero-image-background-image: linear-gradient(
-                  -45deg,
-                  var(--vp-c-brand) 30%,
-                  var(--vp-c-brand-next)
-  );
-  --vp-home-hero-image-filter: blur(80px);
-}
+  --vp-c-brand-1: var(--yohaku-accent);
+  --vp-c-brand-2: #ad5261;
+  --vp-c-brand-3: #91414f;
+  --vp-c-brand-soft: var(--yohaku-accent-soft);
+  --vp-c-brand: var(--yohaku-accent);
+  --vp-c-brand-light: #d27b89;
+  --vp-c-brand-lighter: #e7b7bf;
+  --vp-c-brand-dark: #ad5261;
+  --vp-c-brand-darker: #91414f;
+  --vp-c-brand-next: var(--yohaku-accent);
 
-@media (min-width: 640px) {
-  :root {
-    --vp-home-hero-image-filter: blur(120px);
-  }
-}
+  --vp-button-brand-border: var(--yohaku-accent);
+  --vp-button-brand-text: #fff;
+  --vp-button-brand-bg: var(--yohaku-accent);
+  --vp-button-brand-hover-border: #ad5261;
+  --vp-button-brand-hover-text: #fff;
+  --vp-button-brand-hover-bg: #ad5261;
+  --vp-button-brand-active-border: #91414f;
+  --vp-button-brand-active-text: #fff;
+  --vp-button-brand-active-bg: #91414f;
 
-@media (min-width: 960px) {
-  :root {
-    --vp-home-hero-image-filter: blur(120px);
-  }
-}
+  --vp-custom-block-tip-border: var(--yohaku-accent);
+  --vp-custom-block-tip-text: var(--yohaku-neutral-9);
+  --vp-custom-block-tip-bg: var(--yohaku-accent-soft);
 
-/* Safari has a very bad performance on gradient and filter */
-.browser-safari,
-.browser-firefox {
-  --vp-home-hero-image-background-image: transparent;
-  --vp-home-hero-image-filter: '';
-}
+  --vp-code-color: var(--yohaku-neutral-9);
+  --vp-code-bg: var(--yohaku-neutral-2);
+  --vp-code-block-bg: var(--yohaku-neutral-1);
+  --vp-code-line-highlight-color: rgba(197, 100, 115, 0.08);
+  --vp-code-line-number-color: var(--yohaku-neutral-6);
 
-/**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
-:root {
-  --vp-custom-block-tip-border: var(--vp-c-brand);
-  --vp-custom-block-tip-text: var(--vp-c-brand-darker);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+  --vp-nav-bg-color: rgba(254, 254, 251, 0.86);
+  --vp-sidebar-bg-color: var(--yohaku-neutral-1);
+  --vp-layout-max-width: 1280px;
+  --vp-nav-height: 72px;
+
+  --border-color: var(--yohaku-border);
+  --theme-color: var(--yohaku-accent);
+  --hover-color: var(--yohaku-neutral-2);
+  --header-height: auto;
+  accent-color: var(--yohaku-accent);
 }
 
 .dark {
-  --vp-custom-block-tip-border: var(--vp-c-brand);
-  --vp-custom-block-tip-text: var(--vp-c-brand-lightest);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+  --yohaku-paper: #181715;
+  --yohaku-neutral-1: #141414;
+  --yohaku-neutral-2: #242424;
+  --yohaku-neutral-3: #404040;
+  --yohaku-neutral-4: #5c5c5c;
+  --yohaku-neutral-5: #787878;
+  --yohaku-neutral-6: #a8a8a8;
+  --yohaku-neutral-7: #d0d0d0;
+  --yohaku-neutral-8: #e3e3e3;
+  --yohaku-neutral-9: #f0f0f0;
+  --yohaku-neutral-10: #f8f8f8;
+  --yohaku-accent: #e095a4;
+  --yohaku-accent-soft: rgba(224, 149, 164, 0.12);
+  --yohaku-border: rgba(248, 248, 248, 0.12);
+  --yohaku-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+
+  --vp-c-brand-1: var(--yohaku-accent);
+  --vp-c-brand-2: #e9aebb;
+  --vp-c-brand-3: #f0c5ce;
+  --vp-c-brand-soft: var(--yohaku-accent-soft);
+  --vp-c-brand: var(--yohaku-accent);
+  --vp-c-brand-light: #e9aebb;
+  --vp-c-brand-lighter: #f0c5ce;
+  --vp-c-brand-dark: #cd7f8e;
+  --vp-c-brand-darker: #b96c7b;
+  --vp-nav-bg-color: rgba(24, 23, 21, 0.84);
 }
 
-/**
- * Component: Algolia
- * -------------------------------------------------------------------------- */
 .DocSearch {
-  --docsearch-primary-color: var(--vp-c-brand) !important;
-}
-
-/**
-* Component: Code
-* -------------------------------------------------------------------------- */
-:root {
-  --vp-code-color: var(--vp-c-text-1);
+  --docsearch-primary-color: var(--yohaku-accent) !important;
 }
 
 html {
-  --border-color: #eee;
-  --font-fans: theme("fontFamily.sans");
-  --theme-color: var(--auto-theme-color, theme("colors.orange.500"));
-  --hover-color: var(--auto-hover-color, theme("colors.zinc.100"));
-  --header-height: auto;
-  /* Accent color for form controls */
-  accent-color: var(--theme-color);
-
-  /* make app like native app in mobile */
   -webkit-tap-highlight-color: transparent;
-  /*  for firefox */
-  scrollbar-color: var(--theme-color) transparent;
+  scrollbar-color: var(--yohaku-neutral-5) transparent;
   scrollbar-width: thin;
 }
-
-html.dark {
-  --border-color: #333;
-  --theme-color: var(--auto-theme-color, theme("colors.orange.600"));
-}
-
-//@media (prefers-color-scheme: dark) {
-//  html.not(.light) {
-//  --border-color: #333;
-//  --theme-color: var(--auto-theme-color, theme("colors.orange.600"));
-//}
-//}
-//
-//@media (prefers-color-scheme: light) {
-//  html.not(.dark) {
-//  --border-color: #eee;
-//}
-//}

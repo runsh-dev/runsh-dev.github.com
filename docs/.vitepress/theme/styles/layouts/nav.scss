@@ -1,50 +1,72 @@
-/* nav 换行问题（6 个还是有点小多，后面看看怎么优化） */
-@media (max-width: 1080px) {
-  :root {
-    --vp-sidebar-width: 260px;
-  }
-  .VPNav {
-    font-family: "SN Pro", serif;
-    // 借鉴 https://cn.vuejs.org 的处理
-    .DocSearch-Button-Placeholder {
-      display: none;
-    }
+.VPNav {
+  font-family: var(--vp-font-family-base);
+}
 
-    .VPNavBarMenuLink,
-    .VPNavBarMenuGroup .button {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-  }
+.VPNavBar {
+  border-bottom: 1px solid var(--yohaku-border);
+  background: var(--vp-nav-bg-color);
+  backdrop-filter: blur(4px);
+}
+
+.VPNavBarTitle .title {
+  font-family: var(--content-container-font-family-base);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--yohaku-neutral-10);
+}
+
+.VPNavBarMenuLink,
+.VPNavBarMenuGroup .button {
+  position: relative;
+  padding-right: 12px;
+  padding-left: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yohaku-neutral-7);
+}
+
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuLink.active,
+.VPNavBarMenuGroup .button:hover {
+  color: var(--yohaku-neutral-10);
+}
+
+.VPNavBarMenuLink.active::after {
+  position: absolute;
+  right: 12px;
+  bottom: 14px;
+  left: 12px;
+  height: 1px;
+  background: var(--yohaku-accent);
+  content: "";
+}
+
+.VPSocialLink,
+.VPNavBarAppearance .VPSwitchAppearance {
+  color: var(--yohaku-neutral-7);
+}
+
+.VPSidebar {
+  border-right: 1px solid var(--yohaku-border);
+}
+
+.VPSidebarItem .text {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--yohaku-neutral-7);
+}
+
+.VPSidebarItem.is-active > .item .link > .text {
+  font-weight: 500;
+  color: var(--yohaku-neutral-10);
 }
 
 @media (max-width: 992px) {
-  .VPNav {
-    font-family: "SN Pro", serif;
-    .VPNavBar {
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-
-    .VPNavBarMenuLink,
-    .VPNavBarMenuGroup .button {
-      padding-left: 8px;
-      padding-right: 8px;
-    }
-  }
-}
-
-@media (max-width: 800px) {
-  .VPNav {
-    font-family: "SN Pro", serif;
-    .VPNavBarSearch {
-      padding-left: 16px;
-    }
-
-    .VPNavBarMenuLink,
-    .VPNavBarMenuGroup .button {
-      padding-left: 6px;
-      padding-right: 6px;
-    }
+  .VPNavBar {
+    padding-right: 24px;
+    padding-left: 24px;
   }
 }

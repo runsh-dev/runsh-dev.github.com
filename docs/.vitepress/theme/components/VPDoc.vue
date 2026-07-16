@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { useRoute } from 'vitepress'
 import { computed } from 'vue'
-import { useData } from 'vitepress'
+import { useData, useRoute } from 'vitepress'
 import {useSidebar} from 'vitepress/dist/client/theme-default/composables/sidebar.js'
+import {isPostDetail} from '../../utils/page'
 import VPDocAside from  'vitepress/dist/client/theme-default/components/VPDocAside.vue'
 import VPDocFooter from  'vitepress/dist/client/theme-default/components/VPDocFooter.vue'
-// import VPDocOutlineDropdown from  'vitepress/dist/client/theme-default/components/VPDocOutlineDropdown.vue'
 
-const { theme } = useData()
+const { page, theme } = useData()
 
 const route = useRoute()
 const { hasSidebar, hasAside, leftAside } = useSidebar()
+
+const postDetail = computed(() => isPostDetail(page.value.relativePath))
 
 const pageName = computed(() =>
   route.path.replace(/[./]+/g, '_').replace(/_html$/, '')
@@ -20,7 +21,11 @@ const pageName = computed(() =>
 <template>
   <div
     class="VPDoc page-content"
-    :class="{ 'has-sidebar': hasSidebar, 'has-aside': hasAside }"
+    :class="{
+      'has-sidebar': hasSidebar,
+      'has-aside': hasAside,
+      'is-post-detail': postDetail
+    }"
   >
     <slot name="doc-top" />
     <div class="container">
@@ -43,7 +48,6 @@ const pageName = computed(() =>
       <div class="content">
         <div class="content-container">
           <slot name="doc-before" />
-<!--          <VPDocOutlineDropdown />-->
           <main class="main">
             <Content
               class="vp-doc"
@@ -205,11 +209,32 @@ const pageName = computed(() =>
 }
 
 .VPDoc.has-aside .content-container {
-  max-width: 688px;
+  max-width: 720px;
 }
 
 .external-link-icon-enabled :is(.vp-doc a[href*='://'], .vp-doc a[target='_blank'])::after {
   content: '';
   color: currentColor;
+}
+
+@media (min-width: 960px) {
+  .VPDoc.is-post-detail .container {
+    display: block;
+    max-width: 1024px;
+  }
+
+  .VPDoc.is-post-detail .content {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: 1024px;
+    margin: 0;
+    padding: 0 32px 128px;
+  }
+
+  .VPDoc.is-post-detail .content-container {
+    width: 100%;
+    max-width: 960px;
+  }
 }
 </style>

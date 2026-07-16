@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useData, useRoute } from 'vitepress'
+import { useData, useRoute, withBase } from 'vitepress'
+import VPIconArrowRight from "vitepress/dist/client/theme-default/components/icons/VPIconArrowRight.vue";
 import { data as posts } from '../posts.data'
 
 const route = useRoute()
@@ -10,8 +11,10 @@ const { frontmatter } = useData()
 const currentDir = computed(() => {
   const path = route.path
   const match = path.match(/\/posts\/([^/]+)\/?/)
-  return match ? match[1] : ''
+  return match ? match[1] : 'all'
 })
+
+const isAllDir = computed(() => currentDir.value === 'all')
 
 // 判断当前目录是否为年份目录
 const isYearDir = computed(() => {
@@ -57,44 +60,24 @@ const nextYear = computed(() => {
   return null
 })
 
-// 过滤掉index页面的辅助函数
-const filterIndexPages = (url: string, dir: string | number) => {
-  if (!url || !url.includes(`/posts/${dir}/`)) return false
-  if (url.endsWith('/index') || url.endsWith(`/${dir}/`) || url === `/posts/${dir}`) return false
-  return true
-}
-
 // 前一年的文章数量
 const prevYearPostsCount = computed(() => {
   if (!prevYear.value) return 0
-  return posts.filter(post => filterIndexPages(post.url, prevYear.value!)).length
+  return posts.filter(post => post.url?.includes(`/posts/${prevYear.value}/`)).length
 })
 
 // 后一年的文章数量
 const nextYearPostsCount = computed(() => {
   if (!nextYear.value) return 0
-  return posts.filter(post => filterIndexPages(post.url, nextYear.value!)).length
+  return posts.filter(post => post.url?.includes(`/posts/${nextYear.value}/`)).length
 })
 
 // 获取当前目录下的所有文章
 const dirPosts = computed(() => {
   const dir = currentDir.value
-  if (!dir) return []
-  
-  return posts
-    .filter(post => {
-      // 匹配路径中包含当前目录的文章
-      if (!post.url || !post.url.includes(`/posts/${dir}/`)) return false
-      // 过滤掉 index 页面（避免重复展示自身）
-      if (post.url.endsWith('/index') || post.url.endsWith(`/${dir}/`) || post.url === `/posts/${dir}`) return false
-      return true
-    })
-    .sort((a, b) => {
-      // 按日期降序排序
-      const timeA = a.date?.time || 0
-      const timeB = b.date?.time || 0
-      return timeB - timeA
-    })
+
+  if (isAllDir.value) return posts
+  return posts.filter(post => post.url?.includes(`/posts/${dir}/`))
 })
 
 // 格式化日期
@@ -105,16 +88,19 @@ const formatDate = (date: { time: number; defaultDate?: string; raw?: string }) 
 
 <template>
   <div class="year-index">
-    <h1 class="title">{{ frontmatter.title || currentDir }}</h1>
-    <p class="description" v-if="frontmatter.description">{{ frontmatter.description }}</p>
-    
-    <div class="post-count">共 {{ dirPosts.length }} 篇文章</div>
+    <header class="year-header">
+      <p class="eyebrow">COLLECTION · {{ isAllDir ? 'ALL' : currentDir }}</p>
+      <h1 class="title">{{ frontmatter.title || currentDir }}</h1>
+      <p class="description" v-if="frontmatter.description">{{ frontmatter.description }}</p>
+      <div class="post-count">共 {{ dirPosts.length }} 篇文章</div>
+    </header>
     
     <ul class="post-list">
       <li v-for="post in dirPosts" :key="post.url" class="post-item">
-        <a :href="post.url" class="post-link">
-          <span class="post-title">{{ post.title }}</span>
+        <a :href="withBase(post.url)" class="post-link">
           <span class="post-date">{{ formatDate(post.date) }}</span>
+          <span class="post-title">{{ post.title }}</span>
+          <VPIconArrowRight class="post-arrow" aria-hidden="true"/>
         </a>
       </li>
     </ul>
@@ -125,7 +111,7 @@ const formatDate = (date: { time: number; defaultDate?: string; raw?: string }) 
     
     <!-- 年份导航 -->
     <div v-if="isYearDir && (prevYear || nextYear)" class="year-nav">
-      <a v-if="nextYear" :href="`/posts/${nextYear}/`" class="nav-link nav-next">
+      <a v-if="nextYear" :href="withBase(`/posts/${nextYear}/`)" class="nav-link nav-next">
         <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
@@ -134,7 +120,7 @@ const formatDate = (date: { time: number; defaultDate?: string; raw?: string }) 
       </a>
       <div v-else class="nav-placeholder"></div>
       
-      <a v-if="prevYear" :href="`/posts/${prevYear}/`" class="nav-link nav-prev">
+      <a v-if="prevYear" :href="withBase(`/posts/${prevYear}/`)" class="nav-link nav-prev">
         <span class="nav-text">{{ prevYear }} 年</span>
         <span class="nav-count">({{ prevYearPostsCount }} 篇)</span>
         <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -148,27 +134,47 @@ const formatDate = (date: { time: number; defaultDate?: string; raw?: string }) 
 
 <style scoped>
 .year-index {
-  max-width: 800px;
+  max-width: 880px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 96px 20px 120px;
+}
+
+.year-header {
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--yohaku-neutral-5);
+  padding-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--yohaku-accent);
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--vp-c-text-1);
+  margin: 0;
+  font-family: var(--content-container-font-family-base);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--yohaku-neutral-10);
 }
 
 .description {
-  color: var(--vp-c-text-2);
-  margin-bottom: 1.5rem;
+  max-width: 42em;
+  margin: 14px 0 0;
+  font-family: var(--content-container-font-family-base);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--yohaku-neutral-7);
 }
 
 .post-count {
-  color: var(--vp-c-text-3);
-  margin-bottom: 2rem;
-  font-size: 0.9rem;
+  margin-top: 18px;
+  font-size: 11px;
+  color: var(--yohaku-neutral-6);
 }
 
 .post-list {
@@ -178,101 +184,99 @@ const formatDate = (date: { time: number; defaultDate?: string; raw?: string }) 
 }
 
 .post-item {
-  border-bottom: 1px solid var(--vp-c-divider);
-}
-
-.post-item:last-child {
-  border-bottom: none;
+  border-bottom: 1px solid var(--yohaku-border);
 }
 
 .post-link {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) 18px;
+  gap: 22px;
   align-items: center;
-  padding: 1rem 0;
+  padding: 20px 2px;
+  color: var(--yohaku-neutral-9);
   text-decoration: none;
-  transition: opacity 0.2s;
 }
 
 .post-link:hover {
-  opacity: 0.7;
+  color: var(--yohaku-accent);
 }
 
 .post-title {
-  color: var(--vp-c-text-1);
-  font-size: 1rem;
+  overflow: hidden;
+  font-family: var(--content-container-font-family-base);
+  font-size: 15px;
   font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .post-date {
-  color: var(--vp-c-text-3);
-  font-size: 0.875rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  color: var(--yohaku-neutral-6);
   white-space: nowrap;
-  margin-left: 1rem;
+}
+
+.post-arrow {
+  width: 16px;
+  height: 16px;
+  color: var(--yohaku-neutral-5);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.post-link:hover .post-arrow {
+  color: var(--yohaku-accent);
+  transform: translateX(3px);
 }
 
 .no-posts {
-  color: var(--vp-c-text-3);
+  color: var(--yohaku-neutral-6);
   text-align: center;
-  padding: 2rem;
+  padding: 48px 0;
 }
 
-@media (max-width: 640px) {
-  .post-link {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-  
-  .post-date {
-    margin-left: 0;
-  }
-}
-
-/* 年份导航样式 */
 .year-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--vp-c-divider);
-  gap: 1rem;
+  gap: 16px;
+  margin-top: 56px;
+  border-top: 1px solid var(--yohaku-border);
+  padding-top: 28px;
 }
 
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  color: var(--vp-c-text-1);
+  gap: 8px;
+  border: 1px solid var(--yohaku-border);
+  border-radius: 6px;
+  background: var(--yohaku-neutral-1);
+  padding: 10px 14px;
+  color: var(--yohaku-neutral-8);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.25s ease;
 }
 
 .nav-link:hover {
-  background: var(--vp-c-brand-soft);
-  border-color: var(--vp-c-brand-1);
-  color: var(--vp-c-brand-1);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--yohaku-neutral-5);
+  background: var(--yohaku-neutral-2);
+  color: var(--yohaku-neutral-10);
 }
 
 .nav-text {
-  font-size: 0.95rem;
+  font-size: 12px;
 }
 
 .nav-count {
-  font-size: 0.8rem;
-  color: var(--vp-c-text-3);
+  font-size: 11px;
+  color: var(--yohaku-neutral-6);
 }
 
 .nav-arrow {
-  transition: transform 0.25s ease;
+  transition: transform 0.2s ease;
 }
 
 .nav-next:hover .nav-arrow {
@@ -288,9 +292,34 @@ const formatDate = (date: { time: number; defaultDate?: string; raw?: string }) 
 }
 
 @media (max-width: 640px) {
+  .year-index {
+    padding-top: 64px;
+  }
+
+  .post-link {
+    grid-template-columns: minmax(0, 1fr) 18px;
+    gap: 8px 16px;
+  }
+
+  .post-date {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .post-title {
+    grid-column: 1;
+    grid-row: 2;
+    white-space: normal;
+  }
+
+  .post-arrow {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
   .year-nav {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 12px;
   }
   
   .nav-link {
@@ -303,4 +332,3 @@ const formatDate = (date: { time: number; defaultDate?: string; raw?: string }) 
   }
 }
 </style>
-

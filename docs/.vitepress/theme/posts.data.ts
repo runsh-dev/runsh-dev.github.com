@@ -1,5 +1,5 @@
 import {createContentLoader} from "vitepress";
-import {formatPostDate, formatShowDate} from "./utils";
+import {formatPostDate} from "./utils";
 import type {PostPageDate, PostPageFrontmatter} from "./types";
 
 declare const data: PostPageFrontmatter[];
@@ -13,7 +13,7 @@ export default createContentLoader("posts/**/*.md", {
   excerpt: true,
   transform(raw): PostPageFrontmatter[] {
     return raw
-      .filter(({frontmatter}) => !frontmatter.hide)
+      .filter(({frontmatter}) => !frontmatter.hide && frontmatter.date)
       .map(({url, frontmatter, excerpt}) => ({
         title: frontmatter.title,
         url: url,
