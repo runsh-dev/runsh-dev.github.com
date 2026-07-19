@@ -1,0 +1,22 @@
+docs/.vitepress/theme/styles/layouts/nav.scss
+  s_b21b5fa8f45ab2::t_a75afc7574c548 12
+docs/posts/changelog/20260717-yohaku-theme-redesign.md
+  s_b21b5fa8f45ab2::t_eb458496d31ca5 9-12,15-17
+  s_b21b5fa8f45ab2::t_299caa1730497b 59,186
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.35-trip",
+  "base_commit_sha": "f1b798c66828fe7eb74db63c7ec840048d6d6f28",
+  "prompts": {},
+  "sessions": {
+    "s_b21b5fa8f45ab2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6ed1-3328-7c82-bff6-96e957875ef0",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "itsLink <okwfeng@gmail.com>"
+    }
+  }
+}
