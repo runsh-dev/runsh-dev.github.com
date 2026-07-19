@@ -198,16 +198,6 @@ a {
   letter-spacing: -0.005em;
 }
 
-.yohaku-post-page .vp-doc h2::before {
-  display: inline-block;
-  width: 14px;
-  height: 1px;
-  margin-right: 10px;
-  background: var(--yohaku-accent);
-  vertical-align: 0.34em;
-  content: "";
-}
-
 .yohaku-post-page .vp-doc h3 {
   margin: 28px 0 10px;
   font-size: 18px;
@@ -235,16 +225,7 @@ a {
 }
 
 .yohaku-post-page .vp-doc ul > li {
-  position: relative;
   margin: 6px 0;
-  padding-left: 18px;
-}
-
-.yohaku-post-page .vp-doc ul > li::before {
-  position: absolute;
-  left: 0;
-  color: var(--yohaku-neutral-6);
-  content: "—";
 }
 
 .yohaku-post-page .vp-doc ol {
