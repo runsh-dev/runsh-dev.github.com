@@ -1,0 +1,26 @@
+docs/ideation/2026-07-26-open-ideation.html
+  s_253fa3995463d6::t_0124e6a3a4fbd9 1-591
+docs/about.md
+  h_b669abb50f5793 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.38-trip",
+  "base_commit_sha": "cdbe85e06114249db3cec2a4a7d5790beb2f84f8",
+  "prompts": {},
+  "humans": {
+    "h_b669abb50f5793": {
+      "author": "itsLink <okwfeng@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_253fa3995463d6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f9d9c-3ffd-7030-a7d3-41a4f8ca51e8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "itsLink <okwfeng@gmail.com>"
+    }
+  }
+}
