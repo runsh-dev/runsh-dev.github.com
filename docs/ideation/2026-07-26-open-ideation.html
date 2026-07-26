@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ideation: 更像你的写作方向</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f1ea;
+      --surface: #fffdf8;
+      --surface-2: #ece7dc;
+      --ink: #292824;
+      --muted: #68645b;
+      --line: #d8d1c3;
+      --accent: #9a4f2f;
+      --accent-soft: #f1ded3;
+      --accent-text: #6d321d;
+      --green-soft: #dfe9df;
+      --green-text: #36533a;
+      --blue-soft: #dfe8ed;
+      --blue-text: #304d5d;
+      --warn-soft: #eee2c8;
+      --warn-text: #654c1b;
+      --shadow: 0 14px 40px rgba(48, 39, 27, .07);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.76;
+    }
+    a { color: var(--accent); text-underline-offset: .2em; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: .88em;
+      overflow-wrap: anywhere;
+    }
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: 1rem;
+      z-index: 3;
+      padding: .5rem .75rem;
+      background: var(--ink);
+      color: var(--surface);
+    }
+    .skip:focus { left: 1rem; }
+    .page {
+      width: min(94vw, 940px);
+      margin: 0 auto;
+      padding: 3.5rem 0 5rem;
+    }
+    header {
+      padding: 2.4rem;
+      border: 1px solid var(--line);
+      border-radius: 1.25rem;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .eyebrow {
+      margin: 0 0 .55rem;
+      color: var(--accent);
+      font-size: .72rem;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 {
+      font-family: ui-serif, "Songti SC", "STSong", Georgia, serif;
+      line-height: 1.3;
+      letter-spacing: -.01em;
+    }
+    h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 620; }
+    h2 { margin: 0 0 1rem; font-size: clamp(1.55rem, 3vw, 2.1rem); font-weight: 650; }
+    h3 { margin: 0; font-size: 1.35rem; font-weight: 650; }
+    .lede {
+      max-width: 66ch;
+      margin: 1.15rem 0 0;
+      color: var(--muted);
+      font-family: ui-serif, "Songti SC", "STSong", Georgia, serif;
+      font-size: 1.06rem;
+    }
+    .meta, .stats, .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+    }
+    .meta { margin-top: 1.4rem; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 1.9rem;
+      padding: .18rem .65rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+    .chip.accent { background: var(--accent-soft); color: var(--accent-text); }
+    .chip.green { background: var(--green-soft); color: var(--green-text); }
+    .chip.blue { background: var(--blue-soft); color: var(--blue-text); }
+    .stats {
+      margin-top: 1.4rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+    .stat { min-width: 8rem; }
+    .stat b { display: block; font-family: ui-serif, Georgia, serif; font-size: 1.7rem; line-height: 1.1; }
+    .stat span { color: var(--muted); font-size: .75rem; }
+    nav {
+      margin: 1rem 0 0;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: color-mix(in srgb, var(--surface) 82%, transparent);
+    }
+    nav ul, .jump-list { margin: 0; padding-left: 1.25rem; }
+    nav li, .jump-list li { margin: .28rem 0; }
+    section {
+      margin-top: 1.4rem;
+      padding: 2rem;
+      border: 1px solid var(--line);
+      border-radius: 1.15rem;
+      background: var(--surface);
+    }
+    section > p, .prose { max-width: 72ch; }
+    .callout {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      border-radius: .85rem;
+      background: var(--accent-soft);
+      color: var(--accent-text);
+    }
+    .callout p { margin: 0; max-width: 72ch; }
+    .jump-list {
+      columns: 2;
+      gap: 2rem;
+      margin: 0 0 1.5rem;
+      padding: 1rem 1rem 1rem 2.2rem;
+      border-radius: .85rem;
+      background: var(--surface-2);
+    }
+    .idea {
+      margin-top: 1rem;
+      padding: 1.5rem;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: color-mix(in srgb, var(--surface) 87%, var(--bg));
+      scroll-margin-top: 1rem;
+    }
+    .idea:first-of-type { margin-top: 0; }
+    .idea-head {
+      display: flex;
+      gap: .9rem;
+      align-items: flex-start;
+    }
+    .rank {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-family: ui-serif, Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .idea-desc {
+      max-width: 72ch;
+      margin: .8rem 0 0 3rem;
+      font-family: ui-serif, "Songti SC", "STSong", Georgia, serif;
+      font-size: 1.02rem;
+    }
+    .idea dl {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr);
+      gap: .58rem 1rem;
+      margin: 1.15rem 0 0 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+    .idea dt {
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .idea dd { margin: 0; max-width: 72ch; }
+    .visual {
+      margin: 1rem 0 0 3rem;
+      padding: .8rem;
+      border-radius: .85rem;
+      background: var(--surface-2);
+      overflow-x: auto;
+    }
+    .visual svg { display: block; width: 100%; min-width: 620px; height: auto; }
+    .visual figcaption {
+      margin-top: .45rem;
+      color: var(--muted);
+      font-size: .75rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .88rem;
+    }
+    th, td {
+      padding: .68rem .65rem;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th { color: var(--muted); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+    tbody tr:hover { background: var(--surface-2); }
+    .table-wrap { overflow-x: auto; }
+    footer {
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: .78rem;
+    }
+    @media (max-width: 720px) {
+      .page { width: min(94vw, 940px); padding-top: 1.1rem; }
+      header, section { padding: 1.25rem; }
+      .jump-list { columns: 1; }
+      .idea { padding: 1.1rem; }
+      .idea-desc, .idea dl, .visual { margin-left: 0; }
+      .idea dl { grid-template-columns: 1fr; gap: .2rem; }
+      .idea dt { margin-top: .55rem; }
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1d1c19;
+        --surface: #27251f;
+        --surface-2: #353128;
+        --ink: #eee9df;
+        --muted: #bbb3a6;
+        --line: #4b463c;
+        --accent: #dd8f68;
+        --accent-soft: #4b3025;
+        --accent-text: #f5c2a9;
+        --green-soft: #2c3b2e;
+        --green-text: #bbd7bd;
+        --blue-soft: #293b44;
+        --blue-text: #bad5e2;
+        --warn-soft: #463b25;
+        --warn-text: #e3cd99;
+        --shadow: none;
+      }
+    }
+    @media print {
+      :root { color-scheme: light; }
+      body { background: white; }
+      .page { width: 100%; padding: 0; }
+      header, section { box-shadow: none; break-inside: avoid-page; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <div class="page">
+    <header>
+      <p class="eyebrow">Ideation · 写作方向</p>
+      <h1>更像你的写作方向</h1>
+      <p class="lede">不是再找几个“技术博主应该写”的题目，而是从十余年的文章里辨认：哪些问题只有一个来自普通家庭、在城市工作、跨城生活、成为父亲的工程师能这样写。</p>
+      <div class="meta" aria-label="文档元数据">
+        <span class="chip accent">日期 <time datetime="2026-07-26">2026-07-26</time></span>
+        <span class="chip">主题 writing-directions</span>
+        <span class="chip">模式 repo-grounded</span>
+        <span class="chip blue">开放式探索</span>
+      </div>
+      <div class="stats" aria-label="筛选统计">
+        <div class="stat"><b>48</b><span>原始候选</span></div>
+        <div class="stat"><b>42</b><span>去重与合成后</span></div>
+        <div class="stat"><b>7</b><span>最终保留</span></div>
+        <div class="stat"><b>6</b><span>独立生成视角</span></div>
+      </div>
+    </header>
+
+    <nav aria-label="文档导航">
+      <ul>
+        <li><a href="#grounding-context">Grounding Context</a></li>
+        <li><a href="#topic-axes">Topic Axes</a></li>
+        <li><a href="#ranked-ideas">Ranked Ideas</a></li>
+        <li><a href="#rejection-summary">Rejection Summary</a></li>
+      </ul>
+    </nav>
+
+    <main id="main">
+      <section id="grounding-context">
+        <p class="eyebrow">为什么是这些方向</p>
+        <h2>Grounding Context</h2>
+        <p><strong>Codebase Context：</strong>这个站点从早年的 JavaScript / Git / Redux 学习笔记，逐渐走向阶层流动、农村记忆、城市生活、教育、婚育和父职。到 2026 年，技术更多成为现实生活的背景与观察工具，而不是教程主题本身。</p>
+        <p>最稳定的价值词是“普通人、劳动、尊严、选择、陪伴、回家、读书、教育”；最有力量的文字不是观点，而是现场：一家四口收十亩麦、母亲在田头累哭、产房外坐到天亮、周四深夜十一点半到无锡、抱着发烧的孩子反复哄睡。</p>
+        <p>最值得放大的张力有五组：工程师的系统思维与反职业主义的人文立场；教育带来的流动与拒绝学历崇拜；上海工作与无锡家庭；普通稳定生活与房贷、组织变化、加班；持续公开记录与伴侣、孩子的隐私。</p>
+        <p>当前主要摩擦不是“没有素材”，而是素材缺少第二次组织：日期标题与重复标签让 Daily 彼此替代，大段外部材料有时盖过第一人称，旧文和新判断之间还没有形成可见的演进关系。</p>
+        <div class="callout">
+          <p><strong>核心判断：</strong>你已经不只是“写技术的工程师”。你更像一个用工程师的精确与克制，记录普通家庭如何获得选择、承担照料、维持尊严的人。</p>
+        </div>
+      </section>
+
+      <section id="topic-axes">
+        <p class="eyebrow">探索方式</p>
+        <h2>Topic Axes</h2>
+        <p>Decomposition skipped — surprise-me mode。没有预设技术、生活或成长轴，让不同视角先独立发现主题，再对重合部分做合成。</p>
+      </section>
+
+      <section id="ranked-ideas">
+        <p class="eyebrow">通过反证后的候选</p>
+        <h2>Ranked Ideas</h2>
+        <ol class="jump-list">
+          <li><a href="#idea-1">我靠读书离开麦田，却不想让女儿看不起劳动</a></li>
+          <li><a href="#idea-2">双城父职：周四 23:30 到家</a></li>
+          <li><a href="#idea-3">选择是怎样被造出来的</a></li>
+          <li><a href="#idea-4">劳动如何换了形状</a></li>
+          <li><a href="#idea-5">普通人的系统</a></li>
+          <li><a href="#idea-6">场景 → 暂定判断 → 版本长文</a></li>
+          <li><a href="#idea-7">家庭写作公约</a></li>
+        </ol>
+
+        <article class="idea" id="idea-1">
+          <div class="idea-head">
+            <span class="rank">1</span>
+            <div>
+              <p class="eyebrow">Idea 1 · 现在就能写的旗舰篇</p>
+              <h3>我靠读书离开麦田，却不想让女儿看不起劳动</h3>
+              <div class="chip-row"><span class="chip green">置信度 96%</span><span class="chip blue">复杂度 Medium</span></div>
+            </div>
+          </div>
+          <p class="idea-desc">从母亲在麦田累哭、大嫂替你争取复读机会写起，一路写到上海办公室和自己成为父亲。文章不在“读书改变命运”与“学历无用”之间选边，而是回答：教育给了我离开体力劳动的选择，我又该怎样不把自己的逃离经验变成对女儿的恐吓？</p>
+          <figure class="visual">
+            <svg viewBox="0 0 760 180" role="img" aria-label="母亲的麦田劳动、作者的教育流动与女儿的未来教育构成一条代际链">
+              <defs>
+                <marker id="arrow-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#9a4f2f"></path>
+                </marker>
+              </defs>
+              <rect x="24" y="48" width="190" height="84" rx="16" fill="#f1ded3" stroke="#9a4f2f"></rect>
+              <text x="119" y="82" text-anchor="middle" font-size="15" fill="#6d321d">母亲的麦田</text>
+              <text x="119" y="107" text-anchor="middle" font-size="13" fill="#6d321d">劳动、疲惫、尊严</text>
+              <line x1="224" y1="90" x2="278" y2="90" stroke="#9a4f2f" stroke-width="2" marker-end="url(#arrow-1)"></line>
+              <rect x="288" y="48" width="190" height="84" rx="16" fill="#dfe8ed" stroke="#557789"></rect>
+              <text x="383" y="82" text-anchor="middle" font-size="15" fill="#304d5d">我的教育流动</text>
+              <text x="383" y="107" text-anchor="middle" font-size="13" fill="#304d5d">复读、城市、选择</text>
+              <line x1="488" y1="90" x2="542" y2="90" stroke="#9a4f2f" stroke-width="2" marker-end="url(#arrow-1)"></line>
+              <rect x="552" y="48" width="184" height="84" rx="16" fill="#dfe9df" stroke="#648369"></rect>
+              <text x="644" y="82" text-anchor="middle" font-size="15" fill="#36533a">女儿的未来</text>
+              <text x="644" y="107" text-anchor="middle" font-size="13" fill="#36533a">不把普通当失败</text>
+            </svg>
+            <figcaption>示意：文章真正要连接的不是三个观点，而是三代人之间“劳动—流动—教育”的因果与伦理。</figcaption>
+          </figure>
+          <dl>
+            <dt>Basis</dt>
+            <dd><code>direct:</code> <code>2020麦忙时节儿时回忆.md</code> 的十亩麦与母亲劳累；<code>2020『小镇做题家』的20年.md</code> 的复读机会与城市流动；<code>20250713教育.md</code> 明确提出教育应增加选择，并拒绝用普通劳动者恐吓孩子。</dd>
+            <dt>Rationale</dt>
+            <dd>这是你最重要的三种身份第一次完整相遇：农村家庭的孩子、靠教育流动的成年人、正在教育下一代的父亲。它有个人证据，也有真实矛盾。</dd>
+            <dt>Downsides</dt>
+            <dd>容易被写成先有结论的教育评论。应从一个具体动作开场，并允许自己承认：离开麦田的愿望与尊重劳动并不天然和解。</dd>
+          </dl>
+        </article>
+
+        <article class="idea" id="idea-2">
+          <div class="idea-head">
+            <span class="rank">2</span>
+            <div>
+              <p class="eyebrow">Idea 2 · 长期第一人称系列</p>
+              <h3>双城父职：周四 23:30 到家</h3>
+              <div class="chip-row"><span class="chip green">置信度 95%</span><span class="chip">复杂度 Low</span></div>
+            </div>
+          </div>
+          <p class="idea-desc">用上海—无锡一周的真实动线写父职：几点下班、几点到家、实际陪伴多久、错过了什么、离开后谁接住日常。它不是通勤攻略，也不急着赞美牺牲，而是持续记录公司制度、房价、铁路与家庭照料怎样共同塑造一个父亲的在场方式。</p>
+          <figure class="visual">
+            <svg viewBox="0 0 760 190" role="img" aria-label="双城父职一周节奏，从上海工作经周四夜列车回无锡，再于周日晚返沪">
+              <defs>
+                <marker id="arrow-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#557789"></path>
+                </marker>
+              </defs>
+              <rect x="28" y="54" width="178" height="76" rx="16" fill="#dfe8ed" stroke="#557789"></rect>
+              <text x="117" y="84" text-anchor="middle" font-size="15" fill="#304d5d">上海 · 工作日</text>
+              <text x="117" y="108" text-anchor="middle" font-size="13" fill="#304d5d">项目、加班、缺席</text>
+              <line x1="216" y1="92" x2="292" y2="92" stroke="#557789" stroke-width="2" marker-end="url(#arrow-2)"></line>
+              <text x="254" y="75" text-anchor="middle" font-size="12" fill="#68645b">周四夜</text>
+              <rect x="302" y="54" width="178" height="76" rx="16" fill="#eee2c8" stroke="#92733d"></rect>
+              <text x="391" y="84" text-anchor="middle" font-size="15" fill="#654c1b">23:30 · 到家</text>
+              <text x="391" y="108" text-anchor="middle" font-size="13" fill="#654c1b">周五居家、周末照料</text>
+              <line x1="490" y1="92" x2="566" y2="92" stroke="#557789" stroke-width="2" marker-end="url(#arrow-2)"></line>
+              <text x="528" y="75" text-anchor="middle" font-size="12" fill="#68645b">周日晚</text>
+              <rect x="576" y="54" width="156" height="76" rx="16" fill="#f1ded3" stroke="#9a4f2f"></rect>
+              <text x="654" y="84" text-anchor="middle" font-size="15" fill="#6d321d">再次离开</text>
+              <text x="654" y="108" text-anchor="middle" font-size="13" fill="#6d321d">一周重新开始</text>
+            </svg>
+            <figcaption>示意：重复路线本身就是叙事结构；每周的微小变化会累积成一份无法补拍的家庭时间史。</figcaption>
+          </figure>
+          <dl>
+            <dt>Basis</dt>
+            <dd><code>direct:</code> <code>20260101.md</code> 记录产假后返沪、女儿一度不认爸爸、加班取消返乡，以及“周四晚返锡—周五居家—周末照料—周日晚返沪”的固定节奏。</dd>
+            <dt>Rationale</dt>
+            <dd>“跨城工作的父亲”是高度具体、长期变化、很少被认真记录的位置。它天然能容纳工作、住房、照料、伴侣关系和城市基础设施。</dd>
+            <dt>Downsides</dt>
+            <dd>重复路线容易重新变成流水账。每篇应只抓一个现场、一个关系变化、一个尚未解决的问题；工程比喻只能辅助，不能替代人物。</dd>
+          </dl>
+        </article>
+
+        <article class="idea" id="idea-3">
+          <div class="idea-head">
+            <span class="rank">3</span>
+            <div>
+              <p class="eyebrow">Idea 3 · 统领旧档案的母题</p>
+              <h3>选择是怎样被造出来的</h3>
+              <div class="chip-row"><span class="chip green">置信度 93%</span><span class="chip blue">复杂度 Medium</span></div>
+            </div>
+          </div>
+          <p class="idea-desc">每篇只复盘一个人生分岔口：原本会走向哪里，谁打开了另一条路，当时付出了什么，后来又关闭了哪些可能。复读、离开苏州、去上海、在无锡安家、争取周五居家办公，都可以写成“选择的生产史”，而不是个人努力的胜利史。</p>
+          <dl>
+            <dt>Basis</dt>
+            <dd><code>direct:</code> 486→650 的复读转折、大嫂的家庭协商、苏州到上海、上海住房与无锡照料条件、周五居家办公带来的家庭时间，都已有具体记录。</dd>
+            <dt>Rationale</dt>
+            <dd>“教育增加选择”已经是你的明确信念；这个系列进一步追问选择由家庭托举、制度窗口、金钱、偶然和个人行动怎样共同生产。</dd>
+            <dt>Downsides</dt>
+            <dd>容易滑向事后归因或把亲情算成欠债。每篇必须保留当时的信息盲区，并说明类比的边界。</dd>
+          </dl>
+        </article>
+
+        <article class="idea" id="idea-4">
+          <div class="idea-head">
+            <span class="rank">4</span>
+            <div>
+              <p class="eyebrow">Idea 4 · 三代家庭劳动史</p>
+              <h3>劳动如何换了形状</h3>
+              <div class="chip-row"><span class="chip green">置信度 92%</span><span class="chip blue">复杂度 Medium</span></div>
+            </div>
+          </div>
+          <p class="idea-desc">从一家四口割十亩麦，写到城市办公室的注意力劳动、上海—无锡的通勤，再写到妻子、二姨和长辈承担的夜间照料。核心不是“技术让人更轻松”，而是劳动从未消失，只是被重新分配给不同的人，并变得更隐形。</p>
+          <dl>
+            <dt>Basis</dt>
+            <dd><code>direct:</code> 麦收和三伏天拔草留下了身体劳动细节；<code>20260101.md</code> 又记录了高强度办公室工作、跨城物流、月嫂经验、独自带娃和全家协同照料。</dd>
+            <dt>Rationale</dt>
+            <dd>这条线能把农村记忆、工程工作和家庭照料连成一部小尺度社会变迁史，让“普通劳动者的尊严”有姓名、动作与身体。</dd>
+            <dt>Downsides</dt>
+            <dd>书写家人的劳动需要同意，不能替他们解释感受。应尽量记录原话和具体劳动日，少做代言。</dd>
+          </dl>
+        </article>
+
+        <article class="idea" id="idea-5">
+          <div class="idea-head">
+            <span class="rank">5</span>
+            <div>
+              <p class="eyebrow">Idea 5 · 技术与生活真正交汇的系列</p>
+              <h3>普通人的系统</h3>
+              <div class="chip-row"><span class="chip green">置信度 89%</span><span class="chip blue">复杂度 Medium</span></div>
+            </div>
+          </div>
+          <p class="idea-desc">每篇选一个真实系统——产院转诊、铁路、疫苗、居家办公、项目发布——从一个手忙脚乱的现场进入，审视它默认用户拥有多少空闲时间、照料者、稳定收入、专业知识和表达能力。你不替所有人发言，只写“当一个时间不够的普通父亲撞上它时，摩擦发生在哪里”。</p>
+          <dl>
+            <dt>Basis</dt>
+            <dd><code>direct:</code> NICU 转院、接种疫苗、跨城铁路、周五居家、组织调整、混乱交接与金丝雀发布，都在现有档案中出现；Yohaku 重构也显示你善于辨认系统默认值对不同场景的影响。</dd>
+            <dt>Rationale</dt>
+            <dd>它让工程经验从“教你怎么做”转向“风险最后由谁承担”，同时把普通人的时间、身体和尊严变成可检验的观察。</dd>
+            <dt>Downsides</dt>
+            <dd>范围很容易失控，也有职业保密风险。一次只写一个系统、一个人群位置、一个实际后果，并对职场材料做延迟与匿名处理。</dd>
+          </dl>
+        </article>
+
+        <article class="idea" id="idea-6">
+          <div class="idea-head">
+            <span class="rank">6</span>
+            <div>
+              <p class="eyebrow">Idea 6 · 写作系统</p>
+              <h3>场景 → 暂定判断 → 版本长文</h3>
+              <div class="chip-row"><span class="chip green">置信度 94%</span><span class="chip blue">复杂度 Medium</span></div>
+            </div>
+          </div>
+          <p class="idea-desc">同一件值得留下的事写三次：当天先保留现场，一个月后补一份暂定判断，年底或证据足够时发布可修订的长文。Daily 不再承担“既记录又下结论”的全部压力，而会自然流向几个长期问题。</p>
+          <figure class="visual">
+            <svg viewBox="0 0 760 184" role="img" aria-label="写作系统从当天场景经一个月后的暂定判断，进入可持续修订的版本长文">
+              <defs>
+                <marker id="arrow-3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#9a4f2f"></path>
+                </marker>
+              </defs>
+              <rect x="26" y="48" width="180" height="86" rx="16" fill="#dfe8ed" stroke="#557789"></rect>
+              <text x="116" y="82" text-anchor="middle" font-size="15" fill="#304d5d">当天 · 场景</text>
+              <text x="116" y="108" text-anchor="middle" font-size="13" fill="#304d5d">动作、物件、原话</text>
+              <line x1="216" y1="91" x2="284" y2="91" stroke="#9a4f2f" stroke-width="2" marker-end="url(#arrow-3)"></line>
+              <rect x="294" y="48" width="180" height="86" rx="16" fill="#eee2c8" stroke="#92733d"></rect>
+              <text x="384" y="82" text-anchor="middle" font-size="15" fill="#654c1b">一个月 · 判断</text>
+              <text x="384" y="108" text-anchor="middle" font-size="13" fill="#654c1b">哪里误判、仍不知道什么</text>
+              <line x1="484" y1="91" x2="552" y2="91" stroke="#9a4f2f" stroke-width="2" marker-end="url(#arrow-3)"></line>
+              <rect x="562" y="48" width="172" height="86" rx="16" fill="#dfe9df" stroke="#648369"></rect>
+              <text x="648" y="82" text-anchor="middle" font-size="15" fill="#36533a">版本长文</text>
+              <text x="648" y="108" text-anchor="middle" font-size="13" fill="#36533a">依据、修订、反向链接</text>
+            </svg>
+            <figcaption>示意：三种文本有不同的认知责任；它们互相供给，而不是所有内容都挤进日期容器。</figcaption>
+          </figure>
+          <dl>
+            <dt>Basis</dt>
+            <dd><code>direct:</code> <code>20260101.md</code> 已把 NICU、离别、组织变化与返乡节奏等散点重组成年度叙事；Yohaku changelog 则证明你擅长写目标、约束、变化原因与验证。<code>external:</code> Simon Willison 与 Maggie Appleton 的混合内容形态只作为结构参照。</dd>
+            <dt>Rationale</dt>
+            <dd>你并不缺素材，缺的是让短记录在未来被再次使用的协议。这套结构降低长文启动成本，也让十余年档案从日期仓库变成思想版本史。</dd>
+            <dt>Downsides</dt>
+            <dd>需要少量站点结构和反向链接支持，也可能制造“每条都要升级”的压力。只让反复出现、确实改变判断的素材升级。</dd>
+          </dl>
+        </article>
+
+        <article class="idea" id="idea-7">
+          <div class="idea-head">
+            <span class="rank">7</span>
+            <div>
+              <p class="eyebrow">Idea 7 · 长期写作伦理</p>
+              <h3>家庭写作公约：只写自己的改变，延迟公开，允许留白</h3>
+              <div class="chip-row"><span class="chip green">置信度 96%</span><span class="chip">复杂度 Low</span></div>
+            </div>
+          </div>
+          <p class="idea-desc">女儿不是内容主角；每篇只写一次事件怎样改变“我”的恐惧、笨拙、责任或选择。对于伴侣、孩子和长辈的医疗、冲突与感受，按风险决定是否延迟、模糊、聚合或不写，让沉默也成为父职的一部分。</p>
+          <dl>
+            <dt>Basis</dt>
+            <dd><code>direct:</code> 现有年记包含妻子落泪、女儿医疗与成长、长辈分工和家庭冲突等高度具体的他人经历；最有力量的部分其实已是作者自己的动作——等待、离开、独自照料与整夜抱睡。</dd>
+            <dt>Rationale</dt>
+            <dd>“我想持续记录”与“家人尚不能或不愿同意被公开书写”不是靠更委婉的措辞解决，而需要一条可重复执行的边界。</dd>
+            <dt>Downsides</dt>
+            <dd>过度审查可能抹掉生活质感。目标不是消灭具体场景，而是改变叙述权归属：写自己的承担，不替他人定义内心。</dd>
+          </dl>
+        </article>
+      </section>
+
+      <section id="rejection-summary">
+        <p class="eyebrow">为什么没有留下更多</p>
+        <h2>Rejection Summary</h2>
+        <p class="prose">以下候选并非都差；很多被合并进更强的母题或写作系统。保留这张表，是为了看清最终七项的边界。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Considered idea</th><th>Reason rejected or merged</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>周四 23:30 到家的时间账</td><td>合并进 Idea 2；后者同时容纳固定节奏、离开与城市结构。</td></tr>
+              <tr><td>2</td><td>只写离开的瞬间</td><td>直接素材成立但过窄，作为 Idea 2 的一种篇章结构更合适。</td></tr>
+              <tr><td>3</td><td>双城家庭的“最终一致性”</td><td>工程类比容易压过亲密关系，降为 Idea 2 内的辅助修辞。</td></tr>
+              <tr><td>5</td><td>教育是可逆性基础设施</td><td>概念有启发，但独立存在不如 Idea 3“选择怎样被造出来”具体。</td></tr>
+              <tr><td>6</td><td>一次复读名额的二十年回报</td><td>合并进 Idea 3，成为它的第一篇或第一章。</td></tr>
+              <tr><td>7</td><td>从镰刀到高铁</td><td>合并进 Idea 4；标题可保留为其中一篇。</td></tr>
+              <tr><td>8</td><td>劳动的可观测性</td><td>术语偏重，被 Idea 4 与 Idea 5 更完整地覆盖。</td></tr>
+              <tr><td>9</td><td>替别人兜底的人</td><td>很强，但更适合成为 Idea 4 的人物子系列，并需征得同意。</td></tr>
+              <tr><td>10</td><td>普通家庭的双重账本</td><td>钱、时间、尊严与选择的双账可作为 Idea 3 的固定分析工具。</td></tr>
+              <tr><td>11</td><td>向上流动不是上岸</td><td>好单篇，但作为长期方向比入选母题更窄。</td></tr>
+              <tr><td>12</td><td>流动的复式记账</td><td>与“双重账本”和 Idea 3 的选择生产条件重复。</td></tr>
+              <tr><td>13</td><td>普通家庭的故障预算</td><td>材料不足以支撑完整系统框架，且容易把家人管理化。</td></tr>
+              <tr><td>14</td><td>家庭无责复盘</td><td>可做 Idea 5 的具体文章，不必单列母题。</td></tr>
+              <tr><td>15</td><td>系统可以灰度发布，孩子没有测试环境</td><td>好单篇，但工程类比必须辅助人物，适合归入 Idea 5。</td></tr>
+              <tr><td>16</td><td>回滚是一种对人的尊重</td><td>合并进 Idea 5 的技术伦理分支。</td></tr>
+              <tr><td>17</td><td>普通工程师的组织后果日志</td><td>真实且有价值，但职业隐私负担较高；先作为 Idea 5 子栏目。</td></tr>
+              <tr><td>18</td><td>站在时间不够的人这一边</td><td>“时间不够的普通人”成为 Idea 5 的核心观察位置。</td></tr>
+              <tr><td>19</td><td>把生活改动做成金丝雀发布</td><td>缺少作者已如此决策的直接证据，且照料不应被单方面试验化。</td></tr>
+              <tr><td>20</td><td>信念版本库</td><td>作为 Idea 6 的具体长文格式保留，而非独立母题。</td></tr>
+              <tr><td>21</td><td>维护三本活档案</td><td>过早机械固定为三本，被更灵活的 Idea 6 取代。</td></tr>
+              <tr><td>22</td><td>同一件事写三次</td><td>被 Idea 6 吸收并明确为三个认知阶段。</td></tr>
+              <tr><td>23</td><td>站点是版本史与地块</td><td>比喻不增加新的决策信息。</td></tr>
+              <tr><td>24</td><td>禁止观点开场</td><td>作为 Idea 6 的写作练习保留，不单列方向。</td></tr>
+              <tr><td>25</td><td>禁用“劳动、尊严、教育”</td><td>刻意回避可能妨碍真实表达；应让这些词从现场长出。</td></tr>
+              <tr><td>26</td><td>每篇只解释一个数字</td><td>有效的形式练习，但不是独立母题。</td></tr>
+              <tr><td>27</td><td>布衣履约日志</td><td>可写，但直接证据和长期复利弱于入选系列。</td></tr>
+              <tr><td>28</td><td>平民的无授权项目</td><td>外部启发强于作者自身材料，依据相对较弱。</td></tr>
+              <tr><td>29</td><td>家庭语言田野笔记</td><td>可作为 Idea 1 的后续子题，但需要额外处理孩子隐私。</td></tr>
+              <tr><td>30</td><td>只写我怎样成为父亲</td><td>被 Idea 7 的完整公约吸收。</td></tr>
+              <tr><td>31</td><td>每篇一年后才公开</td><td>“一律一年”过于机械，也会牺牲日志的当下性。</td></tr>
+              <tr><td>32</td><td>家庭叙事的隐私预算</td><td>被 Idea 7 吸收，并改为按风险选择延迟、模糊或留白。</td></tr>
+              <tr><td>33</td><td>反履历 About</td><td>很适合作为站点入口，但更像编辑动作而非核心写作方向。</td></tr>
+              <tr><td>34</td><td>按自己的方式过一生，成家后还算数吗</td><td>好单篇，但与 Idea 2 的自由、责任与在场主题重叠。</td></tr>
+              <tr><td>40</td><td>一个现场、一个数字、一个未解决问题</td><td>作为 Idea 6 的表达协议保留，不单列。</td></tr>
+              <tr><td>42</td><td>反履历 + 五个长期问题</td><td>属于站点编辑与导航，不如入选项直接回答“写什么、怎么写”。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="composition-signal">Composed <time datetime="2026-07-26T17:11:22+08:00">2026-07-26T17:11:22+08:00</time> by <code>ce-ideate</code> from the user prompt “以你对我的了解，提供一下写作思路”.</footer>
+  </div>
+</body>
+</html>
