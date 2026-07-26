@@ -1,0 +1,14 @@
+docs/about.md
+  h_b669abb50f5793 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.38-trip",
+  "base_commit_sha": "2637bf09a7951fe5e0d99d4bd7a33c4b2ad4d25d",
+  "prompts": {},
+  "humans": {
+    "h_b669abb50f5793": {
+      "author": "itsLink <okwfeng@gmail.com>"
+    }
+  }
+}
