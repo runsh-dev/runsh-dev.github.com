@@ -1,5 +1,7 @@
 ---
-title: "VitePress 博客 Yohaku 风格重构：从 Skills 设计契约到 960px 长文版式"
+
+
+        title: "VitePress 博客 Yohaku 风格重构：从 Skills 设计契约到 960px 长文版式"
 subtitle: "一次围绕留白、排版、文章阅读体验与可维护性的系统性改造"
 date: 2026-07-17
 author: RUNSH
