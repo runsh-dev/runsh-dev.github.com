@@ -1,4 +1,10 @@
 {
   "accentColor": "",
-  "cssTheme": "Things"
+  "cssTheme": "Apex",
+  "theme": "obsidian",
+  "textFontFamily": "ComicShannsMono Nerd Font Mono,ComicShannsMono Nerd Font Propo",
+  "monospaceFontFamily": "ComicShannsMono Nerd Font Mono",
+  "interfaceFontFamily": "Google Sans Code",
+  "baseFontSizeAction": true,
+  "translucency": true
 }
