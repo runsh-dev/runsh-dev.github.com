@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {computed} from "vue";
-import {withBase} from "vitepress";
+import { computed } from "vue";
+import { withBase } from "vitepress";
 import VPIconArrowRight from "vitepress/dist/client/theme-default/components/icons/VPIconArrowRight.vue";
 import PostCard from "./PostCard.vue";
-import {usePosts} from "../post";
+import { usePosts } from "../post";
 
 const MAX_POSTS = 10;
 
@@ -26,13 +26,13 @@ const postsByYear = computed(() => {
 const years = computed(() =>
   Object.keys(postsByYear.value)
     .filter((year) => year !== "unknown")
-    .sort((a, b) => Number(b) - Number(a))
+    .sort((a, b) => Number(b) - Number(a)),
 );
 
 const latestYear = computed(() => years.value[0] || "");
 const secondLatestYear = computed(() => years.value[1] || "");
 const latestYearPostsCount = computed(
-  () => postsByYear.value[latestYear.value]?.length || 0
+  () => postsByYear.value[latestYear.value]?.length || 0,
 );
 
 const posts = computed(() => {
@@ -56,11 +56,11 @@ const shownLatestYearPostsCount = computed(
         ? new Date(post.date.time).getFullYear().toString()
         : "unknown";
       return year === latestYear.value;
-    }).length
+    }).length,
 );
 
 const isLatestYearComplete = computed(
-  () => shownLatestYearPostsCount.value >= latestYearPostsCount.value
+  () => shownLatestYearPostsCount.value >= latestYearPostsCount.value,
 );
 const hasMore = computed(() => totalPosts.value > MAX_POSTS);
 
@@ -91,7 +91,9 @@ const viewMoreText = computed(() => {
         <p class="section-eyebrow">LATEST WRITING</p>
         <h2 id="latest-writing">最近写下的</h2>
       </div>
-      <span class="section-count">{{ totalPosts }} 篇记录</span>
+      <a class="section-count" :href="withBase('/articles')"
+        >全部 {{ totalPosts }} 篇 <span aria-hidden="true">↗</span></a
+      >
     </header>
 
     <div v-if="posts.length" class="post-list">
@@ -99,13 +101,14 @@ const viewMoreText = computed(() => {
         v-for="post in posts"
         :key="post.url"
         :post="post"
+        :featured="post === posts[0]"
       />
     </div>
 
     <div v-if="hasMore" class="view-more-container">
       <a :href="withBase(viewMoreLink)" class="view-more-link">
         <span>{{ viewMoreText }}</span>
-        <VPIconArrowRight aria-hidden="true"/>
+        <VPIconArrowRight aria-hidden="true" />
       </a>
     </div>
   </section>
@@ -113,7 +116,7 @@ const viewMoreText = computed(() => {
 
 <style scoped>
 .home-posts {
-  padding-top: 88px;
+  padding-top: 48px;
 }
 
 .section-header {
@@ -128,7 +131,7 @@ const viewMoreText = computed(() => {
 .section-eyebrow {
   margin: 0 0 8px;
   font-family: var(--vp-font-family-mono);
-  font-size: 10px;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   color: var(--yohaku-accent);
 }
@@ -144,12 +147,13 @@ h2 {
 
 .section-count {
   padding-bottom: 3px;
-  font-size: 12px;
+  font-size: 0.875rem;
   color: var(--yohaku-neutral-6);
 }
 
 .post-list {
   display: grid;
+  margin-top: 20px;
 }
 
 .view-more-container {
@@ -164,7 +168,8 @@ h2 {
   gap: 10px;
   border-bottom: 1px solid var(--yohaku-border);
   padding: 8px 0;
-  font-size: 12px;
+  font-family: var(--content-container-font-family-base);
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--yohaku-neutral-7);
   text-decoration: none;
@@ -187,7 +192,7 @@ h2 {
 
 @media (max-width: 640px) {
   .home-posts {
-    padding-top: 64px;
+    padding-top: 40px;
   }
 
   .section-header {

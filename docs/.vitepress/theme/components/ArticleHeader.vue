@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import {computed} from "vue";
-import {useData, withBase} from "vitepress";
+import { computed } from "vue";
+import { useData, withBase } from "vitepress";
 
-const props = withDefaults(defineProps<{
-  isPost?: boolean;
-}>(), {
-  isPost: false,
-});
+const props = withDefaults(
+  defineProps<{
+    isPost?: boolean;
+  }>(),
+  {
+    isPost: false,
+  },
+);
 
-const {frontmatter} = useData();
+const { frontmatter } = useData();
 
 const title = computed(() => frontmatter.value.title);
 const subtitle = computed(() => frontmatter.value.subtitle);
@@ -33,11 +36,11 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
 </script>
 
 <template>
-  <header class="article-header" :class="{'is-post': props.isPost}">
+  <header class="article-header" :class="{ 'is-post': props.isPost }">
     <div v-if="props.isPost" class="post-meta">
       <span class="post-category">{{ category }}</span>
       <time v-if="date" :datetime="date">{{ displayDate }}</time>
-      <span>~ {{ readingTime }} min</span>
+      <span>约 {{ readingTime }} 分钟</span>
     </div>
     <p v-else class="article-eyebrow">PAGE · {{ date || "UNDATED" }}</p>
 
@@ -45,7 +48,9 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
     <p v-if="subtitle" class="article-subtitle">{{ subtitle }}</p>
 
     <div v-if="props.isPost" class="post-author">
-      <span class="post-author-avatar" aria-hidden="true">{{ authorInitial }}</span>
+      <span class="post-author-avatar" aria-hidden="true">{{
+        authorInitial
+      }}</span>
       <div>
         <span class="post-author-name">{{ author }}</span>
         <span class="post-author-date">{{ displayDate }} · RUNSH.DEV</span>
@@ -57,7 +62,10 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
     </div>
 
     <figure v-if="frontmatter.headerImage" class="header-image">
-      <img :src="withBase(frontmatter.headerImage)" :alt="title || '文章封面'">
+      <img
+        :src="withBase(frontmatter.headerImage)"
+        :alt="title || '文章封面'"
+      />
       <figcaption v-if="frontmatter.headerImageCredit">
         <a
           v-if="frontmatter.headerImageCreditLink"
@@ -82,7 +90,7 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
 }
 
 .article-header.is-post {
-  margin-bottom: 24px;
+  margin-bottom: 36px;
   border-bottom: 0;
   padding: 0;
 }
@@ -93,7 +101,7 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
   gap: 16px;
   margin-bottom: 22px;
   font-family: var(--vp-font-family-mono);
-  font-size: 12px;
+  font-size: 0.8125rem;
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: var(--yohaku-neutral-7);
@@ -106,7 +114,7 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
 .article-eyebrow {
   margin: 0 0 18px;
   font-family: var(--vp-font-family-mono);
-  font-size: 10px;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   color: var(--yohaku-accent);
 }
@@ -115,10 +123,12 @@ h1 {
   max-width: 20em;
   margin: 0;
   font-family: var(--content-container-font-family-base);
-  font-size: 40px;
+  font-size: clamp(2rem, 3.5vw, 2.625rem);
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
+  line-height: 1.4;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
   color: var(--yohaku-neutral-10);
 }
 
@@ -152,11 +162,7 @@ h1 {
   place-items: center;
   border: 1px solid var(--yohaku-border);
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    var(--yohaku-neutral-3),
-    var(--yohaku-neutral-5)
-  );
+  background: var(--yohaku-accent-soft);
   font-family: var(--content-container-font-family-base);
   font-size: 13px;
   font-weight: 500;
@@ -178,7 +184,7 @@ h1 {
 .post-author-date {
   margin-top: 2px;
   font-family: var(--vp-font-family-mono);
-  font-size: 11px;
+  font-size: 0.8125rem;
   color: var(--yohaku-neutral-7);
 }
 
@@ -194,7 +200,7 @@ h1 {
   background: var(--yohaku-neutral-2);
   padding: 3px 8px;
   font-family: var(--vp-font-family-base);
-  font-size: 11px;
+  font-size: 0.8125rem;
   color: var(--yohaku-neutral-7);
 }
 
@@ -213,7 +219,7 @@ h1 {
 
 .header-image figcaption {
   margin-top: 8px;
-  font-size: 10px;
+  font-size: 0.75rem;
   text-align: right;
   color: var(--yohaku-neutral-6);
 }
@@ -230,19 +236,19 @@ h1 {
   }
 
   .article-header.is-post {
-    margin-bottom: 20px;
+    margin-bottom: 28px;
     padding-bottom: 0;
   }
 
   .post-meta {
     gap: 8px 12px;
     margin-bottom: 18px;
-    font-size: 11px;
+    font-size: 0.8125rem;
   }
 
   h1 {
-    font-size: 36px;
-    line-height: 1.16;
+    font-size: 1.875rem;
+    line-height: 1.45;
   }
 
   .header-image {

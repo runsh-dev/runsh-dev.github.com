@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {computed} from "vue";
-import {useData} from "vitepress";
+import { computed } from "vue";
+import { useData } from "vitepress";
 
-const {frontmatter} = useData();
+const { frontmatter } = useData();
 
 const tags = computed<string[]>(() => frontmatter.value.tags || []);
 const readingTime = computed(() => frontmatter.value.readingTime || 1);
@@ -28,7 +28,7 @@ const wordCount = computed(() => frontmatter.value.wordCount || 0);
   gap: 16px;
   padding-bottom: 18px;
   font-family: var(--vp-font-family-mono);
-  font-size: 11px;
+  font-size: 0.8125rem;
   line-height: 1.6;
   color: var(--yohaku-neutral-7);
 }

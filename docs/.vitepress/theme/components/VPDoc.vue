@@ -1,45 +1,58 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useData, useRoute } from 'vitepress'
-import {useSidebar} from 'vitepress/dist/client/theme-default/composables/sidebar.js'
-import {isPostDetail} from '../../utils/page'
-import VPDocAside from  'vitepress/dist/client/theme-default/components/VPDocAside.vue'
-import VPDocFooter from  'vitepress/dist/client/theme-default/components/VPDocFooter.vue'
+import { computed, ref } from "vue";
+import { useData, useRoute } from "vitepress";
+import { useSidebar } from "vitepress/dist/client/theme-default/composables/sidebar.js";
+import { isPostDetail } from "../../utils/page";
+import VPDocAside from "vitepress/dist/client/theme-default/components/VPDocAside.vue";
+import VPDocFooter from "vitepress/dist/client/theme-default/components/VPDocFooter.vue";
+import ReadingControls from "./ReadingControls.vue";
 
-const { page, theme } = useData()
+const reading = ref({ size: "default", font: "serif" });
 
-const route = useRoute()
-const { hasSidebar, hasAside, leftAside } = useSidebar()
+const { page, theme } = useData();
 
-const postDetail = computed(() => isPostDetail(page.value.relativePath))
+const route = useRoute();
+const { hasSidebar, hasAside, leftAside } = useSidebar();
+
+const postDetail = computed(() => isPostDetail(page.value.relativePath));
 
 const pageName = computed(() =>
-  route.path.replace(/[./]+/g, '_').replace(/_html$/, '')
-)
+  route.path.replace(/[./]+/g, "_").replace(/_html$/, ""),
+);
 </script>
 
 <template>
   <div
     class="VPDoc page-content"
+    :data-reading-size="reading.size"
+    :data-reading-font="reading.font"
     :class="{
       'has-sidebar': hasSidebar,
       'has-aside': hasAside,
-      'is-post-detail': postDetail
+      'is-post-detail': postDetail,
     }"
   >
     <slot name="doc-top" />
     <div class="container">
-      <div v-if="hasAside" class="aside" :class="{'left-aside': leftAside}">
+      <div v-if="hasAside" class="aside" :class="{ 'left-aside': leftAside }">
         <div class="aside-curtain" />
         <div class="aside-container">
           <div class="aside-content">
             <VPDocAside>
               <template #aside-top><slot name="aside-top" /></template>
               <template #aside-bottom><slot name="aside-bottom" /></template>
-              <template #aside-outline-before><slot name="aside-outline-before" /></template>
-              <template #aside-outline-after><slot name="aside-outline-after" /></template>
-              <template #aside-ads-before><slot name="aside-ads-before" /></template>
-              <template #aside-ads-after><slot name="aside-ads-after" /></template>
+              <template #aside-outline-before
+                ><slot name="aside-outline-before"
+              /></template>
+              <template #aside-outline-after
+                ><slot name="aside-outline-after"
+              /></template>
+              <template #aside-ads-before
+                ><slot name="aside-ads-before"
+              /></template>
+              <template #aside-ads-after
+                ><slot name="aside-ads-after"
+              /></template>
             </VPDocAside>
           </div>
         </div>
@@ -47,18 +60,21 @@ const pageName = computed(() =>
 
       <div class="content">
         <div class="content-container">
+          <ReadingControls v-if="postDetail" @change="reading = $event" />
           <slot name="doc-before" />
           <main class="main">
             <Content
               class="vp-doc"
               :class="[
                 pageName,
-                theme.externalLinkIcon && 'external-link-icon-enabled'
+                theme.externalLinkIcon && 'external-link-icon-enabled',
               ]"
             />
           </main>
           <VPDocFooter>
-            <template #doc-footer-before><slot name="doc-footer-before" /></template>
+            <template #doc-footer-before
+              ><slot name="doc-footer-before"
+            /></template>
           </VPDocFooter>
           <slot name="doc-after" />
         </div>
@@ -99,7 +115,7 @@ const pageName = computed(() =>
     display: flex;
     justify-content: center;
     max-width: 992px;
-    font-family: var(--vp-font-family-base), serif
+    font-family: var(--vp-font-family-base), serif;
   }
 
   .VPDoc:not(.has-sidebar) .content {
@@ -111,7 +127,7 @@ const pageName = computed(() =>
   .VPDoc .container {
     display: flex;
     justify-content: center;
-    font-family: var(--vp-font-family-base), serif
+    font-family: var(--vp-font-family-base), serif;
   }
 
   .VPDoc .aside {
@@ -126,14 +142,14 @@ const pageName = computed(() =>
 
   .VPDoc:not(.has-sidebar) .container {
     max-width: 1104px;
-    font-family: var(--vp-font-family-base), serif
+    font-family: var(--vp-font-family-base), serif;
   }
 }
 
 .container {
   margin: 0 auto;
   width: 100%;
-  font-family: var(--vp-font-family-base), serif
+  font-family: var(--vp-font-family-base), serif;
 }
 
 .aside {
@@ -155,7 +171,10 @@ const pageName = computed(() =>
 .aside-container {
   position: fixed;
   top: 0;
-  padding-top: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + var(--vp-doc-top-height, 0px) + 32px);
+  padding-top: calc(
+    var(--vp-nav-height) + var(--vp-layout-top-height, 0px) +
+      var(--vp-doc-top-height, 0px) + 32px
+  );
   width: 224px;
   height: 100vh;
   overflow-x: hidden;
@@ -179,7 +198,9 @@ const pageName = computed(() =>
 .aside-content {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - (var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 32px));
+  min-height: calc(
+    100vh - (var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 32px)
+  );
   padding-bottom: 32px;
 }
 
@@ -205,36 +226,51 @@ const pageName = computed(() =>
 
 .content-container {
   margin: 0 auto;
-  font-family: var(--content-container-font-family-base), serif
+  font-family: var(--content-container-font-family-base), serif;
 }
 
 .VPDoc.has-aside .content-container {
   max-width: 720px;
 }
 
-.external-link-icon-enabled :is(.vp-doc a[href*='://'], .vp-doc a[target='_blank'])::after {
-  content: '';
+.external-link-icon-enabled :is(.vp-doc a[href*='://'], .vp-doc a[target='_blank'])::after
+{
+  content: "";
   color: currentColor;
+}
+
+.VPDoc.is-post-detail {
+  padding-top: 32px;
+}
+
+.VPDoc.is-post-detail[data-reading-size="small"] {
+  --yohaku-reading-size: var(--yohaku-reading-size-small);
+}
+.VPDoc.is-post-detail[data-reading-size="large"] {
+  --yohaku-reading-size: var(--yohaku-reading-size-large);
+}
+.VPDoc.is-post-detail[data-reading-font="sans"] .vp-doc {
+  font-family: var(--vp-font-family-base);
+}
+
+.VPDoc.is-post-detail .content-container {
+  width: 100%;
+  max-width: var(--yohaku-reading-width);
 }
 
 @media (min-width: 960px) {
   .VPDoc.is-post-detail .container {
     display: block;
-    max-width: 1024px;
+    max-width: calc(var(--yohaku-reading-width) + 64px);
   }
 
   .VPDoc.is-post-detail .content {
     box-sizing: border-box;
     width: 100%;
     min-width: 0;
-    max-width: 1024px;
+    max-width: none;
     margin: 0;
     padding: 0 32px 128px;
-  }
-
-  .VPDoc.is-post-detail .content-container {
-    width: 100%;
-    max-width: 960px;
   }
 }
 </style>

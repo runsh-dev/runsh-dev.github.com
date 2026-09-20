@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import {computed} from "vue";
-import {withBase} from "vitepress";
+import { computed } from "vue";
+import { withBase } from "vitepress";
 import VPIconArrowRight from "vitepress/dist/client/theme-default/components/icons/VPIconArrowRight.vue";
-import {getPostsByYear} from "../utils";
-import {usePosts} from "../post";
+import { getPostsByYear } from "../utils";
+import { usePosts } from "../post";
 
 const filteredPosts = computed(() => getPostsByYear(usePosts()));
 const total = computed(() =>
-  filteredPosts.value.reduce((count, item) => count + item.data.length, 0)
+  filteredPosts.value.reduce((count, item) => count + item.data.length, 0),
 );
 </script>
 
@@ -35,7 +35,7 @@ const total = computed(() =>
               {{ subItem.date.defaultDate.slice(5) }}
             </time>
             <span>{{ subItem.title }}</span>
-            <VPIconArrowRight aria-hidden="true"/>
+            <VPIconArrowRight aria-hidden="true" />
           </a>
         </li>
       </ul>
@@ -47,7 +47,7 @@ const total = computed(() =>
 .archives {
   width: min(100% - 40px, 880px);
   margin: 0 auto;
-  padding: 96px 0 120px;
+  padding: 64px 0 104px;
 }
 
 .archives-header {
@@ -63,7 +63,7 @@ const total = computed(() =>
 .archives-header p {
   margin: 0 0 10px;
   font-family: var(--vp-font-family-mono);
-  font-size: 10px;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   color: var(--yohaku-accent);
 }
@@ -78,7 +78,7 @@ const total = computed(() =>
 
 .archives-header > span {
   padding-bottom: 4px;
-  font-size: 12px;
+  font-size: 0.875rem;
   color: var(--yohaku-neutral-6);
 }
 
@@ -112,7 +112,7 @@ const total = computed(() =>
 
 .archive-year a {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr) 18px;
+  grid-template-columns: 56px minmax(0, 1fr) 18px;
   gap: 18px;
   align-items: center;
   padding: 18px 2px;
@@ -126,16 +126,15 @@ const total = computed(() =>
 
 .archive-year time {
   font-family: var(--vp-font-family-mono);
-  font-size: 11px;
+  font-size: 0.8125rem;
   color: var(--yohaku-neutral-6);
 }
 
 .archive-year a > span {
-  overflow: hidden;
+  overflow-wrap: anywhere;
   font-family: var(--content-container-font-family-base);
-  font-size: 15px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: 1.0625rem;
+  line-height: 1.8;
 }
 
 .archive-year svg {
