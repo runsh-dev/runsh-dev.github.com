@@ -37,12 +37,15 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
 
 <template>
   <header class="article-header" :class="{ 'is-post': props.isPost }">
+    <a v-if="props.isPost" class="back-to-posts" :href="withBase('/articles')"
+      ><span aria-hidden="true">←</span> 所有文章</a
+    >
     <div v-if="props.isPost" class="post-meta">
       <span class="post-category">{{ category }}</span>
       <time v-if="date" :datetime="date">{{ displayDate }}</time>
       <span>约 {{ readingTime }} 分钟</span>
     </div>
-    <p v-else class="article-eyebrow">PAGE · {{ date || "UNDATED" }}</p>
+    <p v-else class="article-eyebrow">LIFE & BLOG · {{ date || "JOURNAL" }}</p>
 
     <h1>{{ title }}</h1>
     <p v-if="subtitle" class="article-subtitle">{{ subtitle }}</p>
@@ -94,6 +97,18 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
   border-bottom: 0;
   padding: 0;
 }
+.back-to-posts {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  margin-bottom: 1.75rem;
+  color: var(--yohaku-neutral-6);
+  font-size: 0.8125rem;
+}
+.back-to-posts:hover {
+  color: var(--yohaku-accent);
+}
 
 .post-meta {
   display: flex;
@@ -124,16 +139,16 @@ h1 {
   margin: 0;
   font-family: var(--content-container-font-family-base);
   font-size: clamp(2rem, 3.5vw, 2.625rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.4;
-  letter-spacing: 0;
+  letter-spacing: -0.035em;
   overflow-wrap: anywhere;
   text-wrap: pretty;
   color: var(--yohaku-neutral-10);
 }
 
 .is-post h1 {
-  font-weight: 500;
+  font-weight: 650;
 }
 
 .article-subtitle {

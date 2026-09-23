@@ -177,7 +177,7 @@ const formatDate = (date: {
 
 .year-header {
   margin-bottom: 48px;
-  border-bottom: 1px solid var(--yohaku-neutral-5);
+  border-bottom: 1px solid var(--yohaku-border);
   padding-bottom: 28px;
 }
 
@@ -192,8 +192,9 @@ const formatDate = (date: {
 .title {
   margin: 0;
   font-family: var(--content-container-font-family-base);
-  font-size: 36px;
-  font-weight: 400;
+  font-size: 2.75rem;
+  font-weight: 650;
+  letter-spacing: -0.04em;
   line-height: 1.3;
   color: var(--yohaku-neutral-10);
 }
@@ -253,6 +254,7 @@ const formatDate = (date: {
 }
 
 .post-arrow {
+  fill: currentColor;
   width: 16px;
   height: 16px;
   color: var(--yohaku-neutral-5);
@@ -287,7 +289,7 @@ const formatDate = (date: {
   align-items: center;
   gap: 8px;
   border: 1px solid var(--yohaku-border);
-  border-radius: 6px;
+  border-radius: 12px;
   background: var(--yohaku-neutral-1);
   padding: 10px 14px;
   color: var(--yohaku-neutral-8);

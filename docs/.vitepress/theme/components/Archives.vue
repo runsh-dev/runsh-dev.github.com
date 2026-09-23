@@ -16,9 +16,9 @@ const total = computed(() =>
     <header class="archives-header">
       <div>
         <p>ARCHIVE · {{ total }} POSTS</p>
-        <h1>文章归档</h1>
+        <h1>写给时间的记录。</h1>
       </div>
-      <span>按年份浏览所有记录</span>
+      <span>文章归档 · 按年份慢慢翻阅</span>
     </header>
 
     <section
@@ -47,7 +47,7 @@ const total = computed(() =>
 .archives {
   width: min(100% - 40px, 880px);
   margin: 0 auto;
-  padding: 64px 0 104px;
+  padding: 80px 0 104px;
 }
 
 .archives-header {
@@ -56,7 +56,7 @@ const total = computed(() =>
   justify-content: space-between;
   gap: 32px;
   margin-bottom: 72px;
-  border-bottom: 1px solid var(--yohaku-neutral-5);
+  border-bottom: 1px solid var(--yohaku-border);
   padding-bottom: 28px;
 }
 
@@ -71,8 +71,10 @@ const total = computed(() =>
 .archives-header h1 {
   margin: 0;
   font-family: var(--content-container-font-family-base);
-  font-size: 36px;
-  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.4;
   color: var(--yohaku-neutral-10);
 }
 
@@ -96,11 +98,15 @@ const total = computed(() =>
   margin: 0;
   font-family: var(--content-container-font-family-base);
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--yohaku-neutral-10);
 }
 
 .archive-year ul {
+  overflow: hidden;
+  border: 1px solid var(--yohaku-border);
+  border-radius: 1rem;
+  background: var(--yohaku-neutral-1);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -109,19 +115,29 @@ const total = computed(() =>
 .archive-year li {
   border-bottom: 1px solid var(--yohaku-border);
 }
+.archive-year li:last-child {
+  border-bottom: 0;
+}
 
 .archive-year a {
   display: grid;
   grid-template-columns: 56px minmax(0, 1fr) 18px;
   gap: 18px;
   align-items: center;
-  padding: 18px 2px;
+  padding: 18px 20px;
   color: var(--yohaku-neutral-9);
   text-decoration: none;
 }
 
 .archive-year a:hover {
   color: var(--yohaku-accent);
+  background: var(--yohaku-accent-soft);
+}
+.archive-year a:active {
+  background: var(--yohaku-neutral-2);
+}
+.archive-year a:focus-visible {
+  outline-offset: -3px;
 }
 
 .archive-year time {
@@ -138,6 +154,7 @@ const total = computed(() =>
 }
 
 .archive-year svg {
+  fill: currentColor;
   width: 16px;
   height: 16px;
   color: var(--yohaku-neutral-5);

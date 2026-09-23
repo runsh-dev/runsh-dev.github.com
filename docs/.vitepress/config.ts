@@ -34,6 +34,7 @@ const getReadingStats = (source: string) => {
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Life & BLOG",
+  lang: "zh-CN",
   description: "人生不是一场赛跑，而是一场旅行。",
   cleanUrls: true,
   buildEnd: rss,
@@ -113,10 +114,10 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: "Articles", link: "/articles" },
-	    { text: "Lab", link: "/lab" },
-      { text: 'About', link: '/about' }
+      { text: '首页', link: '/' },
+      { text: "文章", link: "/articles", activeMatch: '^/(articles|posts)/?' },
+	    { text: "实验室", link: "/lab" },
+      { text: '关于', link: '/about' }
     ],
 
     sidebar: {

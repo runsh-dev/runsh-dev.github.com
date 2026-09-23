@@ -1,39 +1,39 @@
 /**
  * Yohaku theme tokens.
  *
- * Reading-first edition: warm paper, botanical green, and a small ochre accent.
+ * Apple-inspired journal: quiet surfaces, system typography, restrained blue.
  * Keep shared colors, typography roles, and reading measure in this file.
  */
 :root {
-  --yohaku-paper: #faf9f5;
-  --yohaku-neutral-1: #f2f1e9;
-  --yohaku-neutral-2: #eaece3;
-  --yohaku-neutral-3: #dddfd4;
-  --yohaku-neutral-4: #d0cec6;
-  --yohaku-neutral-5: #a8a69f;
-  --yohaku-neutral-6: #6e7168;
-  --yohaku-neutral-7: #53594f;
-  --yohaku-neutral-8: #403f3a;
-  --yohaku-neutral-9: #30372f;
-  --yohaku-neutral-10: #202c25;
-  --yohaku-accent: #38634d;
-  --yohaku-accent-soft: #e9eee5;
-  --yohaku-ochre: #956630;
-  --yohaku-ochre-soft: #f0e6d6;
+  --yohaku-paper: #ffffff;
+  --yohaku-neutral-1: #f5f5f7;
+  --yohaku-neutral-2: #eaeaec;
+  --yohaku-neutral-3: #dedee3;
+  --yohaku-neutral-4: #c6c6cc;
+  --yohaku-neutral-5: #98989f;
+  --yohaku-neutral-6: #686870;
+  --yohaku-neutral-7: #606068;
+  --yohaku-neutral-8: #424247;
+  --yohaku-neutral-9: #303034;
+  --yohaku-neutral-10: #1d1d1f;
+  --yohaku-accent: #0066cc;
+  --yohaku-accent-soft: #edf5ff;
+  --yohaku-ochre: #90652c;
+  --yohaku-ochre-soft: #f8f0e4;
   --yohaku-reading-width: 45rem;
-  // Match the Chinese body text on Adobe's Source Han Serif specimen page.
-  --yohaku-reading-size: 1.3125rem;
-  --yohaku-reading-size-small: 1.125rem;
-  --yohaku-reading-size-large: 1.5rem;
-  --yohaku-reading-leading: 1.667;
-  --yohaku-border: rgba(36, 35, 31, 0.12);
-  --yohaku-shadow: 0 4px 24px rgba(36, 35, 31, 0.05);
+  // Reading sizes use rem to respect browser text scaling.
+  --yohaku-reading-size: 1.125rem;
+  --yohaku-reading-size-small: 1rem;
+  --yohaku-reading-size-large: 1.3125rem;
+  --yohaku-reading-leading: 1.9;
+  --yohaku-border: rgba(29, 29, 31, 0.08);
+  --yohaku-shadow: 0 10px 32px rgba(29, 29, 31, 0.07);
 
-  --vp-font-family-base: "SN Pro", "PingFang SC", "Microsoft YaHei",
-    "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  --content-container-font-family-base: "Source Han Serif SC", "Songti SC",
-    "Noto Serif SC", "STSong", "SimSun", Georgia, serif;
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --content-container-font-family-base: var(--vp-font-family-base);
+  --journal-serif-font: "Source Han Serif SC", "Songti SC", "Noto Serif SC",
+    Georgia, serif;
   --vp-font-family-mono: "SFMono-Regular", "Cascadia Code", "JetBrains Mono",
     "Fira Code", Consolas, Monaco, "Noto Sans Mono CJK SC", monospace;
 
@@ -50,25 +50,25 @@
   --vp-c-text-3: var(--yohaku-neutral-6);
 
   --vp-c-brand-1: var(--yohaku-accent);
-  --vp-c-brand-2: #2b503c;
-  --vp-c-brand-3: #234432;
+  --vp-c-brand-2: #005bb5;
+  --vp-c-brand-3: #004f9f;
   --vp-c-brand-soft: var(--yohaku-accent-soft);
   --vp-c-brand: var(--yohaku-accent);
-  --vp-c-brand-light: #4c775e;
-  --vp-c-brand-lighter: #c9d9cb;
-  --vp-c-brand-dark: #2b503c;
-  --vp-c-brand-darker: #234432;
+  --vp-c-brand-light: #3185db;
+  --vp-c-brand-lighter: #d7e8fb;
+  --vp-c-brand-dark: #005bb5;
+  --vp-c-brand-darker: #004f9f;
   --vp-c-brand-next: var(--yohaku-accent);
 
   --vp-button-brand-border: var(--yohaku-accent);
   --vp-button-brand-text: #fff;
   --vp-button-brand-bg: var(--yohaku-accent);
-  --vp-button-brand-hover-border: #2b503c;
+  --vp-button-brand-hover-border: #005bb5;
   --vp-button-brand-hover-text: #fff;
-  --vp-button-brand-hover-bg: #2b503c;
-  --vp-button-brand-active-border: #234432;
+  --vp-button-brand-hover-bg: #005bb5;
+  --vp-button-brand-active-border: #004f9f;
   --vp-button-brand-active-text: #fff;
-  --vp-button-brand-active-bg: #234432;
+  --vp-button-brand-active-bg: #004f9f;
 
   --vp-custom-block-tip-border: var(--yohaku-accent);
   --vp-custom-block-tip-text: var(--yohaku-neutral-9);
@@ -77,14 +77,14 @@
   --vp-code-color: var(--yohaku-neutral-9);
   --vp-code-bg: var(--yohaku-neutral-2);
   --vp-code-block-bg: var(--yohaku-neutral-1);
-  --vp-code-line-highlight-color: rgba(56, 99, 77, 0.08);
+  --vp-code-line-highlight-color: rgba(0, 102, 204, 0.07);
   --vp-code-line-number-color: var(--yohaku-neutral-6);
   --vp-code-font-size: 0.875em;
 
-  --vp-nav-bg-color: rgba(250, 249, 245, 0.94);
+  --vp-nav-bg-color: rgba(255, 255, 255, 0.78);
   --vp-sidebar-bg-color: var(--yohaku-neutral-1);
-  --vp-layout-max-width: 1280px;
-  --vp-nav-height: 72px;
+  --vp-layout-max-width: 1200px;
+  --vp-nav-height: 64px;
 
   --border-color: var(--yohaku-border);
   --theme-color: var(--yohaku-accent);
@@ -94,41 +94,41 @@
 }
 
 .dark {
-  --yohaku-paper: #1b211e;
-  --yohaku-neutral-1: #222a25;
-  --yohaku-neutral-2: #2c352e;
-  --yohaku-neutral-3: #404040;
-  --yohaku-neutral-4: #5c5c5c;
-  --yohaku-neutral-5: #787878;
-  --yohaku-neutral-6: #a8a8a8;
-  --yohaku-neutral-7: #d0d0d0;
-  --yohaku-neutral-8: #e3e3e3;
-  --yohaku-neutral-9: #dedfd6;
-  --yohaku-neutral-10: #f0f0e8;
-  --yohaku-accent: #acc9ae;
-  --yohaku-accent-soft: #28392e;
+  --yohaku-paper: #161617;
+  --yohaku-neutral-1: #202022;
+  --yohaku-neutral-2: #2b2b2e;
+  --yohaku-neutral-3: #39393e;
+  --yohaku-neutral-4: #535359;
+  --yohaku-neutral-5: #85858e;
+  --yohaku-neutral-6: #a1a1aa;
+  --yohaku-neutral-7: #b9b9c0;
+  --yohaku-neutral-8: #d8d8dd;
+  --yohaku-neutral-9: #e8e8ed;
+  --yohaku-neutral-10: #f5f5f7;
+  --yohaku-accent: #76b7ff;
+  --yohaku-accent-soft: #1c3047;
   --yohaku-ochre: #d9b77e;
   --yohaku-ochre-soft: #393126;
   --yohaku-border: rgba(248, 248, 248, 0.12);
   --yohaku-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
 
   --vp-c-brand-1: var(--yohaku-accent);
-  --vp-c-brand-2: #c2d9bd;
-  --vp-c-brand-3: #d5e5cd;
+  --vp-c-brand-2: #96c8ff;
+  --vp-c-brand-3: #bddcff;
   --vp-c-brand-soft: var(--yohaku-accent-soft);
   --vp-c-brand: var(--yohaku-accent);
-  --vp-c-brand-light: #c2d9bd;
-  --vp-c-brand-lighter: #d5e5cd;
-  --vp-c-brand-dark: #94b797;
-  --vp-c-brand-darker: #7c9f80;
-  --vp-button-brand-text: #1b211e;
-  --vp-button-brand-hover-text: #1b211e;
-  --vp-button-brand-hover-bg: #c2d9bd;
-  --vp-button-brand-hover-border: #c2d9bd;
-  --vp-button-brand-active-text: #1b211e;
-  --vp-button-brand-active-bg: #d5e5cd;
-  --vp-code-line-highlight-color: rgba(172, 201, 174, 0.08);
-  --vp-nav-bg-color: rgba(27, 33, 30, 0.94);
+  --vp-c-brand-light: #96c8ff;
+  --vp-c-brand-lighter: #bddcff;
+  --vp-c-brand-dark: #56a4fa;
+  --vp-c-brand-darker: #4094ed;
+  --vp-button-brand-text: #161617;
+  --vp-button-brand-hover-text: #161617;
+  --vp-button-brand-hover-bg: #96c8ff;
+  --vp-button-brand-hover-border: #96c8ff;
+  --vp-button-brand-active-text: #161617;
+  --vp-button-brand-active-bg: #bddcff;
+  --vp-code-line-highlight-color: rgba(118, 183, 255, 0.08);
+  --vp-nav-bg-color: rgba(22, 22, 23, 0.82);
 }
 
 .DocSearch {

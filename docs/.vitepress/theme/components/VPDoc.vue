@@ -7,7 +7,7 @@ import VPDocAside from "vitepress/dist/client/theme-default/components/VPDocAsid
 import VPDocFooter from "vitepress/dist/client/theme-default/components/VPDocFooter.vue";
 import ReadingControls from "./ReadingControls.vue";
 
-const reading = ref({ size: "default", font: "serif" });
+const reading = ref({ size: "default", font: "sans" });
 
 const { page, theme } = useData();
 
@@ -60,8 +60,8 @@ const pageName = computed(() =>
 
       <div class="content">
         <div class="content-container">
-          <ReadingControls v-if="postDetail" @change="reading = $event" />
           <slot name="doc-before" />
+          <ReadingControls v-if="postDetail" @change="reading = $event" />
           <main class="main">
             <Content
               class="vp-doc"
@@ -240,7 +240,7 @@ const pageName = computed(() =>
 }
 
 .VPDoc.is-post-detail {
-  padding-top: 32px;
+  padding-top: 56px;
 }
 
 .VPDoc.is-post-detail[data-reading-size="small"] {
@@ -251,6 +251,9 @@ const pageName = computed(() =>
 }
 .VPDoc.is-post-detail[data-reading-font="sans"] .vp-doc {
   font-family: var(--vp-font-family-base);
+}
+.VPDoc.is-post-detail[data-reading-font="serif"] .vp-doc {
+  font-family: var(--journal-serif-font);
 }
 
 .VPDoc.is-post-detail .content-container {

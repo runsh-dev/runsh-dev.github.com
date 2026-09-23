@@ -1,72 +1,105 @@
 .VPNav {
   font-family: var(--vp-font-family-base);
 }
-
-.VPNavBar {
-  border-bottom: 1px solid var(--yohaku-border);
+.VPNav .VPNavBar {
+  border-bottom: 0;
   background: var(--vp-nav-bg-color);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
 }
-
-.VPNavBarTitle .title {
-  font-family: var(--vp-font-family-base);
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--yohaku-neutral-10);
+.VPNav .VPNavBar .content-body {
+  background: transparent;
 }
-
-.VPNavBarMenuLink,
-.VPNavBarMenuGroup .button {
-  position: relative;
-  padding-right: 12px;
-  padding-left: 12px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--yohaku-neutral-7);
+.VPNavBar .divider {
+  display: none;
 }
-
-.VPNavBarMenuLink:hover,
-.VPNavBarMenuLink.active,
-.VPNavBarMenuGroup .button:hover {
-  color: var(--yohaku-neutral-10);
-}
-
-.VPNavBarMenuLink.active::after {
+.VPNavBar::after {
   position: absolute;
-  right: 12px;
-  bottom: 14px;
-  left: 12px;
-  height: 1px;
-  background: var(--yohaku-accent);
+  inset: auto 0 -10px;
+  height: 10px;
+  background: linear-gradient(var(--vp-nav-bg-color), transparent);
+  pointer-events: none;
   content: "";
 }
-
+.VPNavBarTitle .title {
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  color: var(--yohaku-neutral-10);
+}
+.VPNavBarTitle .title::before {
+  display: grid;
+  place-items: center;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: 0.5rem;
+  background: var(--yohaku-neutral-10);
+  color: var(--yohaku-paper);
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  content: "L";
+}
+.VPNavBarMenuLink,
+.VPNavBarMenuGroup .button {
+  padding-inline: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--yohaku-neutral-7);
+}
+.VPNavBarMenuLink.active,
+.VPNavBarMenuLink:hover {
+  color: var(--yohaku-accent);
+}
 .VPSocialLink,
 .VPNavBarAppearance .VPSwitchAppearance {
   color: var(--yohaku-neutral-7);
 }
-
 .VPSidebar {
   border-right: 1px solid var(--yohaku-border);
 }
-
 .VPSidebarItem .text {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 400;
   color: var(--yohaku-neutral-7);
 }
-
 .VPSidebarItem.is-active > .item .link > .text {
   font-weight: 500;
   color: var(--yohaku-neutral-10);
 }
-
-@media (max-width: 992px) {
-  .VPNavBar {
-    padding-right: 0;
-    padding-left: 0;
+.VPNavScreen .container {
+  padding-top: 1.5rem;
+}
+@media (min-width: 960px) {
+  .VPNavBar:not(.has-sidebar) .container {
+    max-width: 66rem;
+  }
+}
+@media (max-width: 959px) {
+  .VPNav {
+    position: sticky !important;
+  }
+  .Layout .VPLocalNav {
+    top: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px));
+  }
+  .hide-nav .Layout .VPLocalNav {
+    top: 0;
+  }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .VPNav .VPNavBar {
+    background: var(--yohaku-paper);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .VPNavBar::after {
+    display: none;
+  }
+}
+@media (prefers-contrast: more) {
+  .VPNav .VPNavBar {
+    border-bottom: 1px solid var(--yohaku-neutral-7);
   }
 }

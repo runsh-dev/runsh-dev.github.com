@@ -8,6 +8,7 @@ body {
   line-height: 1.65;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
 }
 
 ::selection {
@@ -17,6 +18,7 @@ body {
 
 a,
 button {
+  touch-action: manipulation;
   transition:
     color 160ms ease,
     background-color 160ms ease,
@@ -235,6 +237,7 @@ button {
 }
 .VPDocFooter .pager-link {
   background: var(--yohaku-neutral-1);
+  border-radius: 1rem;
   font-family: var(--content-container-font-family-base);
 }
 .VPDocFooter .title {
@@ -293,5 +296,26 @@ button {
     scroll-behavior: auto !important;
     animation: none !important;
     transition: none !important;
+  }
+  .hero-action,
+  .featured-story,
+  .post-card,
+  .archive-year a svg,
+  .post-link .post-arrow,
+  .nav-link .nav-arrow {
+    transform: none !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --yohaku-neutral-6: #494950;
+    --yohaku-neutral-7: #37373c;
+    --yohaku-border: #777780;
+  }
+  .dark {
+    --yohaku-neutral-6: #d0d0d8;
+    --yohaku-neutral-7: #e8e8ed;
+    --yohaku-border: #a1a1aa;
   }
 }

@@ -1,11 +1,4 @@
-/* Fonts are served with the blog, with native fallbacks while they load. */
-@font-face {
-  font-family: "SN Pro";
-  font-style: normal;
-  font-weight: 200 900;
-  font-display: swap;
-  src: url("../fonts/SNPro-VariableRegular.woff2") format("woff2");
-}
+/* Optional reading font; the interface uses native system fonts. */
 
 @font-face {
   font-family: "Source Han Serif SC";

@@ -8,15 +8,15 @@ const emit = defineEmits<{
 }>();
 const storageKey = "yohaku-reading-preferences";
 const size = ref<ReadingSize>("default");
-const font = ref<ReadingFont>("serif");
+const font = ref<ReadingFont>("sans");
 const sizes = [
   { value: "small", label: "小" },
   { value: "default", label: "标准" },
   { value: "large", label: "大" },
 ] as const;
 const fonts = [
+  { value: "sans", label: "系统字体" },
   { value: "serif", label: "思源宋体" },
-  { value: "sans", label: "黑体" },
 ] as const;
 
 onMounted(() => {
@@ -78,9 +78,10 @@ watch([size, font], () => {
   align-items: center;
   flex-wrap: wrap;
   gap: 10px 16px;
-  margin: 0 0 32px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--yohaku-border);
+  margin: 0 0 40px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: var(--yohaku-neutral-1);
   font-family: var(--vp-font-family-base);
   font-size: 0.8125rem;
   color: var(--yohaku-neutral-6);
@@ -92,14 +93,14 @@ watch([size, font], () => {
   display: flex;
   gap: 2px;
   padding: 3px;
-  border: 1px solid var(--yohaku-border);
-  border-radius: 6px;
+  border-radius: 9px;
+  background: var(--yohaku-neutral-2);
 }
 button {
   min-width: 40px;
-  min-height: 36px;
+  min-height: 40px;
   padding: 4px 8px;
-  border-radius: 3px;
+  border-radius: 7px;
   font: inherit;
   color: var(--yohaku-neutral-7);
 }
@@ -107,9 +108,23 @@ button:hover {
   background: var(--yohaku-neutral-1);
 }
 button[aria-pressed="true"] {
-  background: var(--yohaku-accent-soft);
-  color: var(--yohaku-accent);
+  background: var(--yohaku-paper);
+  color: var(--yohaku-neutral-10);
   font-weight: 600;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
+}
+button:active {
+  background: var(--yohaku-accent-soft);
+}
+@media (pointer: coarse) {
+  button {
+    min-height: 44px;
+  }
+}
+@media (max-width: 540px) {
+  .reading-label {
+    flex-basis: 100%;
+  }
 }
 @media (max-width: 380px) {
   .reading-controls {
