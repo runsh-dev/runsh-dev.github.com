@@ -1,0 +1,16 @@
+docs/posts/2026/20260924.md
+  h_ab0d387c106ca1 1-24
+docs/posts/2026/20260919.md
+  h_ab0d387c106ca1 6,11-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "0eec3f073b40f63f62b6ca84b19e59efdee28842",
+  "prompts": {},
+  "humans": {
+    "h_ab0d387c106ca1": {
+      "author": "okwfeng <wangfeng@trip.com>"
+    }
+  }
+}
