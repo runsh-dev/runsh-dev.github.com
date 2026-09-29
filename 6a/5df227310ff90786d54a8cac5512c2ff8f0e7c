@@ -1,0 +1,22 @@
+docs/posts/2026/20260919.md
+  s_612199da788105::t_f2e5ef3bda7b34 10,12,14,16,18
+docs/posts/2026/20260924.md
+  s_612199da788105::t_f9315eb5a72979 26
+  s_612199da788105::t_f2e5ef3bda7b34 10,12,14,16,18,20-25,27-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "6a5df227310ff90786d54a8cac5512c2ff8f0e7c",
+  "prompts": {},
+  "sessions": {
+    "s_612199da788105": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0e742-0756-7291-b0f6-2039654bfd6d",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "okwfeng <wangfeng@trip.com>"
+    }
+  }
+}
