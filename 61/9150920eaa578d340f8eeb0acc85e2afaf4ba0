@@ -1,0 +1,14 @@
+README.md
+  h_ab0d387c106ca1 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "619150920eaa578d340f8eeb0acc85e2afaf4ba0",
+  "prompts": {},
+  "humans": {
+    "h_ab0d387c106ca1": {
+      "author": "okwfeng <wangfeng@trip.com>"
+    }
+  }
+}
