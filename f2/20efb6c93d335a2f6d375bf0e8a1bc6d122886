@@ -1,0 +1,22 @@
+README.md
+  s_612199da788105::t_35303c9e5ed2a0 12
+  s_612199da788105::t_02bcc274a8f9ba 1-2,4,6,8,10
+  s_612199da788105::t_2122175143e595 3,5,9,13
+  s_612199da788105::t_0a81716667fe3e 7,11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "f220efb6c93d335a2f6d375bf0e8a1bc6d122886",
+  "prompts": {},
+  "sessions": {
+    "s_612199da788105": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0e742-0756-7291-b0f6-2039654bfd6d",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "okwfeng <wangfeng@trip.com>"
+    }
+  }
+}
