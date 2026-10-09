@@ -219,6 +219,7 @@ button {
 }
 .vp-doc pre,
 .vp-doc code {
+  font-family: var(--vp-font-family-mono);
   text-align: left;
   letter-spacing: normal;
   font-feature-settings: normal;

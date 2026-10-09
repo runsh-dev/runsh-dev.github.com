@@ -103,7 +103,7 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
   gap: 0.5rem;
   min-height: 2.75rem;
   margin-bottom: 1.75rem;
-  color: var(--yohaku-neutral-6);
+  color: var(--yohaku-link-color);
   font-size: 0.8125rem;
 }
 .back-to-posts:hover {
