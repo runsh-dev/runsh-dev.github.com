@@ -1,0 +1,49 @@
+docs/.vitepress/theme/styles/layouts/content.scss
+  s_a2845e37a98c84::t_3e8e54c20ee955 37
+docs/.vitepress/theme/components/JournalFooter.vue
+  s_a2845e37a98c84::t_a31f624eb46524 83
+  s_a2845e37a98c84::t_3e8e54c20ee955 59
+docs/.vitepress/theme/components/PostCard.vue
+  s_a2845e37a98c84::t_a31f624eb46524 104
+docs/.vitepress/theme/styles/vars.scss
+  s_a2845e37a98c84::t_14a34064a7f20a 4,14-20,39-41,43-44,58-60,62
+docs/.vitepress/theme/styles/yohaku.scss
+  s_a2845e37a98c84::t_14a34064a7f20a 103,105,111,143,270
+docs/.vitepress/theme/styles/layouts/nav.scss
+  s_a2845e37a98c84::t_3e8e54c20ee955 39,53
+  s_a2845e37a98c84::t_a31f624eb46524 52,54,56
+docs/.vitepress/theme/styles/myfonts.scss
+  s_a2845e37a98c84::t_14a34064a7f20a 1-8,11,15,23,27,35,39,47,51,59,63
+docs/.vitepress/theme/README.md
+  s_a2845e37a98c84::t_a31f624eb46524 3,16-18,30,32
+docs/.vitepress/theme/components/YearIndex.vue
+  s_a2845e37a98c84::t_3e8e54c20ee955 186,189,250
+  s_a2845e37a98c84::t_a31f624eb46524 238,267
+docs/.vitepress/theme/components/ArticleFooter.vue
+  s_a2845e37a98c84::t_3e8e54c20ee955 30,40
+docs/.vitepress/theme/components/HomePostsPreview.vue
+  s_a2845e37a98c84::t_a31f624eb46524 332
+  s_a2845e37a98c84::t_3e8e54c20ee955 156,323
+docs/.vitepress/theme/components/Archives.vue
+  s_a2845e37a98c84::t_a31f624eb46524 133,166
+  s_a2845e37a98c84::t_3e8e54c20ee955 65,68,144
+docs/.vitepress/theme/components/ArticleHeader.vue
+  s_a2845e37a98c84::t_3e8e54c20ee955 118,126,131,134,197
+  s_a2845e37a98c84::t_a31f624eb46524 110
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "bf1107f0b83d9e419d2ef4c804712fc47e261051",
+  "prompts": {},
+  "sessions": {
+    "s_a2845e37a98c84": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a12067-bc45-75b2-ae54-3e144dfcd66c",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "okwfeng <wangfeng@trip.com>"
+    }
+  }
+}
