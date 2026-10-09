@@ -7,7 +7,7 @@ import VPDocAside from "vitepress/dist/client/theme-default/components/VPDocAsid
 import VPDocFooter from "vitepress/dist/client/theme-default/components/VPDocFooter.vue";
 import ReadingControls from "./ReadingControls.vue";
 
-const reading = ref({ size: "default", font: "sans" });
+const reading = ref({ size: "default", font: "serif" });
 
 const { page, theme } = useData();
 
@@ -250,7 +250,7 @@ const pageName = computed(() =>
   --yohaku-reading-size: var(--yohaku-reading-size-large);
 }
 .VPDoc.is-post-detail[data-reading-font="sans"] .vp-doc {
-  font-family: var(--vp-font-family-base);
+  font-family: var(--journal-sans-font);
 }
 .VPDoc.is-post-detail[data-reading-font="serif"] .vp-doc {
   font-family: var(--journal-serif-font);

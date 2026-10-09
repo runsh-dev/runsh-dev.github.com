@@ -1,4 +1,4 @@
-/* Optional reading font; the interface uses native system fonts. */
+/* Default site font; use installed fonts first, then bundled files. */
 
 @font-face {
   font-family: "Source Han Serif SC";

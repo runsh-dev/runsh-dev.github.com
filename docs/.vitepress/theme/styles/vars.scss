@@ -1,7 +1,7 @@
 /**
  * Yohaku theme tokens.
  *
- * Apple-inspired journal: quiet surfaces, system typography, restrained blue.
+ * Apple-inspired journal: quiet surfaces, serif typography, restrained blue.
  * Keep shared colors, typography roles, and reading measure in this file.
  */
 :root {
@@ -22,18 +22,24 @@
   --yohaku-ochre-soft: #f8f0e4;
   --yohaku-reading-width: 45rem;
   // Reading sizes use rem to respect browser text scaling.
-  --yohaku-reading-size: 1.125rem;
-  --yohaku-reading-size-small: 1rem;
+  // Apple Newsroom: desktop body 19px / 27px, section headings 24px / 31px.
+  --yohaku-reading-size: 1.1875rem;
+  --yohaku-reading-size-small: 1.0625rem;
   --yohaku-reading-size-large: 1.3125rem;
-  --yohaku-reading-leading: 1.9;
+  --yohaku-reading-leading: 1.4211;
+  --yohaku-reading-paragraph-gap: 1.4211em;
+  --yohaku-reading-heading-size: 1.2632em;
+  --yohaku-reading-heading-leading: 1.29167;
+  --yohaku-reading-section-gap: 3.25rem;
   --yohaku-border: rgba(29, 29, 31, 0.08);
   --yohaku-shadow: 0 10px 32px rgba(29, 29, 31, 0.07);
 
-  --vp-font-family-base: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+  --journal-sans-font: -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "Helvetica Neue", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-  --content-container-font-family-base: var(--vp-font-family-base);
   --journal-serif-font: "Source Han Serif SC", "Songti SC", "Noto Serif SC",
     Georgia, serif;
+  --vp-font-family-base: var(--journal-serif-font);
+  --content-container-font-family-base: var(--vp-font-family-base);
   --vp-font-family-mono: "SFMono-Regular", "Cascadia Code", "JetBrains Mono",
     "Fira Code", Consolas, Monaco, "Noto Sans Mono CJK SC", monospace;
 

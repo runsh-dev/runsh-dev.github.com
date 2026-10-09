@@ -8,7 +8,7 @@ const emit = defineEmits<{
 }>();
 const storageKey = "yohaku-reading-preferences";
 const size = ref<ReadingSize>("default");
-const font = ref<ReadingFont>("sans");
+const font = ref<ReadingFont>("serif");
 const sizes = [
   { value: "small", label: "小" },
   { value: "default", label: "标准" },

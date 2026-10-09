@@ -138,25 +138,21 @@ h1 {
   max-width: 20em;
   margin: 0;
   font-family: var(--content-container-font-family-base);
-  font-size: clamp(2rem, 3.5vw, 2.625rem);
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: -0.035em;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.0835;
+  letter-spacing: normal;
   overflow-wrap: anywhere;
   text-wrap: pretty;
   color: var(--yohaku-neutral-10);
-}
-
-.is-post h1 {
-  font-weight: 650;
 }
 
 .article-subtitle {
   max-width: 42em;
   margin: 12px 0 0;
   font-family: var(--content-container-font-family-base);
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 1.1875rem;
+  line-height: var(--yohaku-reading-leading);
   color: var(--yohaku-neutral-7);
 }
 
@@ -261,17 +257,23 @@ h1 {
     font-size: 0.8125rem;
   }
 
-  h1 {
-    font-size: 1.875rem;
-    line-height: 1.45;
-  }
-
   .header-image {
     margin-top: 24px;
   }
 
   .header-image img {
     max-height: 320px;
+  }
+}
+
+@media (max-width: 734px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 1.21875;
+  }
+
+  .article-subtitle {
+    font-size: 1.0625rem;
   }
 }
 </style>

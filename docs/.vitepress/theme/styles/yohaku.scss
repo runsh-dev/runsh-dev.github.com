@@ -52,7 +52,7 @@ button {
 
 .vp-doc p,
 .vp-doc summary {
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--yohaku-reading-paragraph-gap);
   line-height: inherit;
 }
 
@@ -76,10 +76,11 @@ button {
     font-size: 1.9em;
   }
   h2 {
-    margin: 2.5em 0 0.85em;
+    margin: var(--yohaku-reading-section-gap) 0 1rem;
     padding-top: 0;
     border-top: 0;
-    font-size: 1.45em;
+    font-size: var(--yohaku-reading-heading-size);
+    line-height: var(--yohaku-reading-heading-leading);
   }
   h3 {
     margin: 2em 0 0.7em;
@@ -277,11 +278,16 @@ button {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 734px) {
   :root {
-    --yohaku-reading-size: 1rem;
+    // Apple Newsroom: mobile body 17px / 25px, section headings 21px / 28px.
+    --yohaku-reading-size: 1.0625rem;
     --yohaku-reading-size-small: 0.9375rem;
-    --yohaku-reading-size-large: 1.125rem;
+    --yohaku-reading-size-large: 1.1875rem;
+    --yohaku-reading-leading: 1.4706;
+    --yohaku-reading-heading-size: 1.2353em;
+    --yohaku-reading-heading-leading: 1.3334;
+    --yohaku-reading-section-gap: 2.75rem;
   }
   .vp-doc th,
   .vp-doc td {
