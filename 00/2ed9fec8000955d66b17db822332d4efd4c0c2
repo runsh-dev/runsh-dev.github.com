@@ -1,0 +1,32 @@
+docs/.vitepress/theme/README.md
+  s_a2845e37a98c84::t_feb17776f47037 3,20,26-28
+  s_a2845e37a98c84::t_e54094fffcc466 14-19,21-24
+docs/.vitepress/theme/styles/vars.scss
+  s_a2845e37a98c84::t_feb17776f47037 4,25-27,29-33,37,41-42
+docs/.vitepress/theme/components/ArticleHeader.vue
+  s_a2845e37a98c84::t_feb17776f47037 141-144,154-155,268-276
+docs/.vitepress/theme/components/ReadingControls.vue
+  s_a2845e37a98c84::t_feb17776f47037 11
+docs/.vitepress/theme/styles/yohaku.scss
+  s_a2845e37a98c84::t_feb17776f47037 55,79,82-83,281,283-284,286-290
+docs/.vitepress/theme/components/VPDoc.vue
+  s_a2845e37a98c84::t_feb17776f47037 10,253
+docs/.vitepress/theme/styles/myfonts.scss
+  s_a2845e37a98c84::t_feb17776f47037 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "002ed9fec8000955d66b17db822332d4efd4c0c2",
+  "prompts": {},
+  "sessions": {
+    "s_a2845e37a98c84": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a12067-bc45-75b2-ae54-3e144dfcd66c",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "okwfeng <wangfeng@trip.com>"
+    }
+  }
+}
