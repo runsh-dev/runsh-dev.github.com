@@ -1,0 +1,32 @@
+docs/.vitepress/theme/components/ArticleHeader.vue
+  s_a2845e37a98c84::t_c4034797fad5ae 106
+docs/.vitepress/theme/styles/vars.scss
+  s_a2845e37a98c84::t_c4034797fad5ae 43
+README.md
+  h_ab0d387c106ca1 9
+docs/.vitepress/theme/styles/yohaku.scss
+  s_a2845e37a98c84::t_c4034797fad5ae 222
+docs/.vitepress/theme/styles/layouts/nav.scss
+  s_a2845e37a98c84::t_c4034797fad5ae 50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "18182200f21ca5a3346cf01a0b24c366c47bb7a5",
+  "prompts": {},
+  "humans": {
+    "h_ab0d387c106ca1": {
+      "author": "okwfeng <wangfeng@trip.com>"
+    }
+  },
+  "sessions": {
+    "s_a2845e37a98c84": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a12067-bc45-75b2-ae54-3e144dfcd66c",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "okwfeng <wangfeng@trip.com>"
+    }
+  }
+}
