@@ -27,7 +27,7 @@ const wordCount = computed(() => frontmatter.value.wordCount || 0);
   justify-content: space-between;
   gap: 16px;
   padding-bottom: 18px;
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-base);
   font-size: 0.8125rem;
   line-height: 1.6;
   color: var(--yohaku-neutral-7);
@@ -37,7 +37,7 @@ const wordCount = computed(() => frontmatter.value.wordCount || 0);
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-color);
 }
 
 .article-tail-stats {

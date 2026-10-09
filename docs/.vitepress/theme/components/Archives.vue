@@ -62,10 +62,10 @@ const total = computed(() =>
 
 .archives-header p {
   margin: 0 0 10px;
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-base);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-color);
 }
 
 .archives-header h1 {
@@ -130,7 +130,7 @@ const total = computed(() =>
 }
 
 .archive-year a:hover {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-hover);
   background: var(--yohaku-accent-soft);
 }
 .archive-year a:active {
@@ -141,7 +141,7 @@ const total = computed(() =>
 }
 
 .archive-year time {
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-base);
   font-size: 0.8125rem;
   color: var(--yohaku-neutral-6);
 }
@@ -163,7 +163,7 @@ const total = computed(() =>
 
 .archive-year a:hover svg {
   transform: translateX(3px);
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-hover);
 }
 
 @media (max-width: 640px) {

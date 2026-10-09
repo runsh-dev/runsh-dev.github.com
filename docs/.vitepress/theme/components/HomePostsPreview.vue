@@ -153,7 +153,7 @@ const recentPosts = computed(() => allPosts.value.slice(1, 7));
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-color);
   font-size: 0.6875rem;
   font-weight: 600;
 }
@@ -320,7 +320,7 @@ time {
   min-height: 2.75rem;
   margin-top: 0.25rem;
   font-size: 0.75rem;
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-color);
 }
 @media (hover: hover) {
   .featured-story:hover {
@@ -329,7 +329,7 @@ time {
   }
   .all-posts:hover,
   .archive-link:hover {
-    color: var(--yohaku-accent);
+    color: var(--yohaku-link-hover);
   }
 }
 @media (max-width: 767px) {

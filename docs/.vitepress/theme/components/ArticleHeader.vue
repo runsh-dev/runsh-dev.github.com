@@ -107,7 +107,7 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
   font-size: 0.8125rem;
 }
 .back-to-posts:hover {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-hover);
 }
 
 .post-meta {
@@ -115,7 +115,7 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
   flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 22px;
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-base);
   font-size: 0.8125rem;
   line-height: 1.5;
   letter-spacing: 0.04em;
@@ -123,15 +123,15 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
 }
 
 .post-category {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-color);
 }
 
 .article-eyebrow {
   margin: 0 0 18px;
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-base);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-color);
 }
 
 h1 {
@@ -194,7 +194,7 @@ h1 {
 
 .post-author-date {
   margin-top: 2px;
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-base);
   font-size: 0.8125rem;
   color: var(--yohaku-neutral-7);
 }

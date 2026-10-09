@@ -1,10 +1,18 @@
-/* Default site font; use installed fonts first, then bundled files. */
+/* Limit the serif face to Han characters and CJK punctuation.
+ * Latin, digits and other scripts fall through to the system font.
+ * The distinct family name avoids matching an unrestricted installed face.
+ */
+$han-unicode-range: U+2E80-2FDF, U+2FF0-303F, U+3100-312F, U+31A0-31EF,
+  U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE10-FE1F, U+FE30-FE4F,
+  U+FF01-FF0F, U+FF1A-FF20, U+FF3B-FF40, U+FF5B-FF65, U+20000-2FA1F,
+  U+30000-3347F;
 
 @font-face {
-  font-family: "Source Han Serif SC";
+  font-family: "Source Han Serif SC CJK";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
+  unicode-range: $han-unicode-range;
   src:
     local("Source Han Serif SC"),
     local("SourceHanSerifSC-Regular"),
@@ -12,10 +20,11 @@
 }
 
 @font-face {
-  font-family: "Source Han Serif SC";
+  font-family: "Source Han Serif SC CJK";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
+  unicode-range: $han-unicode-range;
   src:
     local("Source Han Serif SC Medium"),
     local("SourceHanSerifSC-Medium"),
@@ -23,10 +32,11 @@
 }
 
 @font-face {
-  font-family: "Source Han Serif SC";
+  font-family: "Source Han Serif SC CJK";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
+  unicode-range: $han-unicode-range;
   src:
     local("Source Han Serif SC SemiBold"),
     local("SourceHanSerifSC-SemiBold"),
@@ -34,10 +44,11 @@
 }
 
 @font-face {
-  font-family: "Source Han Serif SC";
+  font-family: "Source Han Serif SC CJK";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
+  unicode-range: $han-unicode-range;
   src:
     local("Source Han Serif SC Bold"),
     local("SourceHanSerifSC-Bold"),
@@ -45,10 +56,11 @@
 }
 
 @font-face {
-  font-family: "Source Han Serif SC";
+  font-family: "Source Han Serif SC CJK";
   font-style: normal;
   font-weight: 900;
   font-display: swap;
+  unicode-range: $han-unicode-range;
   src:
     local("Source Han Serif SC Heavy"),
     local("SourceHanSerifSC-Heavy"),

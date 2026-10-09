@@ -56,7 +56,7 @@ const { hasSidebar } = useSidebar();
   color: var(--yohaku-neutral-10);
 }
 .footer-brand > a span {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-color);
 }
 .footer-brand p {
   margin-top: 0.5rem;
@@ -80,7 +80,7 @@ nav a {
   min-height: 2.75rem;
 }
 nav a:hover {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-hover);
 }
 .footer-details > p {
   color: var(--yohaku-neutral-6);

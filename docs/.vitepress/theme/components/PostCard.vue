@@ -101,7 +101,7 @@ h3 {
   }
   .post-card:hover h3,
   .post-card:hover .post-bottom > span {
-    color: var(--yohaku-accent);
+    color: var(--yohaku-link-hover);
   }
 }
 @media (max-width: 640px) {

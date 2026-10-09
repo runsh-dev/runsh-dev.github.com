@@ -100,14 +100,15 @@ button {
 }
 
 .vp-doc a {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-color);
   text-decoration: underline;
-  text-decoration-color: var(--yohaku-neutral-5);
+  text-decoration-color: var(--yohaku-neutral-6);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
 }
 
 .vp-doc a:hover {
+  color: var(--yohaku-link-hover);
   text-decoration-color: currentColor;
 }
 .vp-doc strong {
@@ -139,7 +140,7 @@ button {
   margin-top: 0.45em;
 }
 .vp-doc li::marker {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-neutral-9);
 }
 .vp-doc li > ul,
 .vp-doc li > ol {
@@ -266,7 +267,7 @@ button {
   color: var(--yohaku-neutral-7);
 }
 .VPDocAsideOutline .outline-link.active {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-color);
 }
 .yohaku-post-page .VPSidebar {
   display: none;

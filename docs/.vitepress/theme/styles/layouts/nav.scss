@@ -36,7 +36,7 @@
   border-radius: 0.5rem;
   background: var(--yohaku-neutral-10);
   color: var(--yohaku-paper);
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-base);
   font-size: 0.8125rem;
   font-weight: 500;
   content: "L";
@@ -49,9 +49,11 @@
   letter-spacing: 0.01em;
   color: var(--yohaku-neutral-7);
 }
-.VPNavBarMenuLink.active,
+.VPNavBarMenuLink.active {
+  color: var(--yohaku-link-color);
+}
 .VPNavBarMenuLink:hover {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-hover);
 }
 .VPSocialLink,
 .VPNavBarAppearance .VPSwitchAppearance {

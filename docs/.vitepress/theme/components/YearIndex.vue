@@ -183,10 +183,10 @@ const formatDate = (date: {
 
 .eyebrow {
   margin: 0 0 10px;
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-base);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-color);
 }
 
 .title {
@@ -235,7 +235,7 @@ const formatDate = (date: {
 }
 
 .post-link:hover {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-hover);
 }
 
 .post-title {
@@ -247,7 +247,7 @@ const formatDate = (date: {
 }
 
 .post-date {
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-base);
   font-size: 0.8125rem;
   color: var(--yohaku-neutral-6);
   white-space: nowrap;
@@ -264,7 +264,7 @@ const formatDate = (date: {
 }
 
 .post-link:hover .post-arrow {
-  color: var(--yohaku-accent);
+  color: var(--yohaku-link-hover);
   transform: translateX(3px);
 }
 
