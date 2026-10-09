@@ -43,3 +43,14 @@
     local("SourceHanSerifSC-Bold"),
     url("../fonts/SourceHanSerifSC-Bold.otf") format("opentype");
 }
+
+@font-face {
+  font-family: "Source Han Serif SC";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src:
+    local("Source Han Serif SC Heavy"),
+    local("SourceHanSerifSC-Heavy"),
+    url("../fonts/SourceHanSerifSC-Heavy.otf") format("opentype");
+}

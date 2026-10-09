@@ -135,12 +135,12 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
 }
 
 h1 {
-  max-width: 20em;
+  max-width: 100%;
   margin: 0;
   font-family: var(--content-container-font-family-base);
   font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.0835;
+  font-weight: 900;
+  line-height: 1.44;
   letter-spacing: normal;
   overflow-wrap: anywhere;
   text-wrap: pretty;
@@ -151,7 +151,7 @@ h1 {
   max-width: 42em;
   margin: 12px 0 0;
   font-family: var(--content-container-font-family-base);
-  font-size: 1.1875rem;
+  font-size: var(--yohaku-reading-size);
   line-height: var(--yohaku-reading-leading);
   color: var(--yohaku-neutral-7);
 }
@@ -266,14 +266,15 @@ h1 {
   }
 }
 
-@media (max-width: 734px) {
+@media (max-width: 1023px) {
   h1 {
-    font-size: 2rem;
-    line-height: 1.21875;
+    font-size: 2.25rem;
   }
+}
 
-  .article-subtitle {
-    font-size: 1.0625rem;
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.75rem;
   }
 }
 </style>

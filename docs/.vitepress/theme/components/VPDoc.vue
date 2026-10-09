@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { useData, useRoute } from "vitepress";
 import { useSidebar } from "vitepress/dist/client/theme-default/composables/sidebar.js";
 import { isPostDetail } from "../../utils/page";
 import VPDocAside from "vitepress/dist/client/theme-default/components/VPDocAside.vue";
 import VPDocFooter from "vitepress/dist/client/theme-default/components/VPDocFooter.vue";
-import ReadingControls from "./ReadingControls.vue";
-
-const reading = ref({ size: "default", font: "serif" });
-
 const { page, theme } = useData();
 
 const route = useRoute();
@@ -24,8 +20,6 @@ const pageName = computed(() =>
 <template>
   <div
     class="VPDoc page-content"
-    :data-reading-size="reading.size"
-    :data-reading-font="reading.font"
     :class="{
       'has-sidebar': hasSidebar,
       'has-aside': hasAside,
@@ -61,7 +55,6 @@ const pageName = computed(() =>
       <div class="content">
         <div class="content-container">
           <slot name="doc-before" />
-          <ReadingControls v-if="postDetail" @change="reading = $event" />
           <main class="main">
             <Content
               class="vp-doc"
@@ -243,37 +236,32 @@ const pageName = computed(() =>
   padding-top: 56px;
 }
 
-.VPDoc.is-post-detail[data-reading-size="small"] {
-  --yohaku-reading-size: var(--yohaku-reading-size-small);
-}
-.VPDoc.is-post-detail[data-reading-size="large"] {
-  --yohaku-reading-size: var(--yohaku-reading-size-large);
-}
-.VPDoc.is-post-detail[data-reading-font="sans"] .vp-doc {
-  font-family: var(--journal-sans-font);
-}
-.VPDoc.is-post-detail[data-reading-font="serif"] .vp-doc {
-  font-family: var(--journal-serif-font);
-}
-
 .VPDoc.is-post-detail .content-container {
   width: 100%;
   max-width: var(--yohaku-reading-width);
 }
 
-@media (min-width: 960px) {
-  .VPDoc.is-post-detail .container {
-    display: block;
-    max-width: calc(var(--yohaku-reading-width) + 64px);
-  }
+.VPDoc:is(.is-post-detail, :not(.has-sidebar)) {
+  padding-inline: var(--yohaku-reading-gutter);
+}
 
-  .VPDoc.is-post-detail .content {
-    box-sizing: border-box;
-    width: 100%;
-    min-width: 0;
-    max-width: none;
-    margin: 0;
-    padding: 0 32px 128px;
+.VPDoc:is(.is-post-detail, :not(.has-sidebar)) .container {
+  display: block;
+  max-width: var(--yohaku-reading-width);
+}
+
+.VPDoc:is(.is-post-detail, :not(.has-sidebar)) .content {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 960px) {
+  .VPDoc:is(.is-post-detail, :not(.has-sidebar)) .content {
+    padding-bottom: 128px;
   }
 }
 </style>
