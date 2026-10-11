@@ -139,7 +139,7 @@ h1 {
   margin: 0;
   font-family: var(--content-container-font-family-base);
   font-size: 3rem;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.44;
   letter-spacing: normal;
   overflow-wrap: anywhere;

@@ -65,7 +65,7 @@ button {
   h5,
   h6 {
     color: var(--yohaku-neutral-10);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0;
     line-height: 1.5;
     overflow-wrap: anywhere;
@@ -291,7 +291,7 @@ button {
 
 @media (max-width: 1023px) {
   :root {
-    --yohaku-reading-size: 1.125rem;
+    --yohaku-reading-size: 1.25rem;
     --yohaku-reading-heading-size: 1.2222em;
     --yohaku-reading-section-gap: 2.5rem;
   }
@@ -299,7 +299,7 @@ button {
 
 @media (max-width: 768px) {
   :root {
-    --yohaku-reading-size: 1rem;
+    --yohaku-reading-size: 1.25rem;
     --yohaku-reading-heading-size: 1.375em;
     --yohaku-reading-section-gap: 1.875rem;
   }
