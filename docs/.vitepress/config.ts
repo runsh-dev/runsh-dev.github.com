@@ -53,6 +53,7 @@ export default defineConfig({
     },
   },
   head: [
+    ['link', { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossorigin: 'anonymous' }],
     [
       "meta",
       {
