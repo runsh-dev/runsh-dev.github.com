@@ -9,8 +9,36 @@ declare const categoriesMeta: { name: string; text: string; count: number }[];
 
 export {data, categoriesMeta};
 
+// 首页摘要：优先取 <!-- more --> 之前的内容，否则取开头几段（遇到标题或足够长即停止）
+const EXCERPT_MAX_CHARS = 240;
+const EXCERPT_MAX_BLOCKS = 6;
+
+function extractExcerpt(file: { content: string; excerpt?: string }) {
+  const content = file.content.replace(/^\s+/, "");
+  const more = content.indexOf("<!-- more -->");
+  if (more > -1) {
+    file.excerpt = content.slice(0, more);
+    return;
+  }
+  const blocks: string[] = [];
+  let length = 0;
+  for (const block of content.split(/\n\s*\n/)) {
+    const text = block.trim();
+    if (!text) continue;
+    if (/^#{1,6}\s/.test(text)) {
+      if (blocks.length) break;
+      continue;
+    }
+    if (/^(```|~~~|<|!\[|\||:::)/.test(text)) continue;
+    blocks.push(text);
+    length += text.length;
+    if (length >= EXCERPT_MAX_CHARS || blocks.length >= EXCERPT_MAX_BLOCKS) break;
+  }
+  file.excerpt = blocks.join("\n\n");
+}
+
 export default createContentLoader("posts/**/*.md", {
-  excerpt: true,
+  excerpt: extractExcerpt,
   transform(raw): PostPageFrontmatter[] {
     return raw
       .filter(({frontmatter}) => !frontmatter.hide && frontmatter.date)

@@ -138,9 +138,9 @@ h1 {
   max-width: 100%;
   margin: 0;
   font-family: var(--content-container-font-family-base);
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.44;
+  font-size: 1.625rem;
+  font-weight: 400;
+  line-height: 1.6;
   letter-spacing: normal;
   overflow-wrap: anywhere;
   text-wrap: pretty;
@@ -266,15 +266,9 @@ h1 {
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 700px) {
   h1 {
-    font-size: 2.25rem;
-  }
-}
-
-@media (max-width: 640px) {
-  h1 {
-    font-size: 1.75rem;
+    font-size: 1.375rem;
   }
 }
 </style>

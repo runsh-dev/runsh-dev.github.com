@@ -67,30 +67,29 @@ button {
     color: var(--yohaku-neutral-10);
     font-weight: 700;
     letter-spacing: 0;
-    line-height: 1.5;
+    line-height: var(--yohaku-reading-heading-leading);
     overflow-wrap: anywhere;
     scroll-margin-top: calc(var(--vp-nav-height) + 24px);
   }
 
   h1 {
-    margin: 2em 0 1em;
-    font-size: 1.9em;
+    margin: 2.1em 0 0.8em;
+    font-size: 1.3125em;
   }
   h2 {
-    margin: var(--yohaku-reading-section-gap) 0 1rem;
+    margin: 2.1em 0 0.8em;
     padding-top: 0;
     border-top: 0;
     font-size: var(--yohaku-reading-heading-size);
-    line-height: var(--yohaku-reading-heading-leading);
   }
   h3 {
-    margin: 2em 0 0.7em;
-    font-size: 1.2em;
+    margin: 2.1em 0 0.8em;
+    font-size: 1.125em;
   }
   h4,
   h5,
   h6 {
-    margin: 1.8em 0 0.6em;
+    margin: 2.1em 0 0.8em;
     font-size: 1em;
   }
 
@@ -289,20 +288,7 @@ button {
   }
 }
 
-@media (max-width: 1023px) {
-  :root {
-    --yohaku-reading-size: 1.25rem;
-    --yohaku-reading-heading-size: 1.2222em;
-    --yohaku-reading-section-gap: 2.5rem;
-  }
-}
-
 @media (max-width: 768px) {
-  :root {
-    --yohaku-reading-size: 1.25rem;
-    --yohaku-reading-heading-size: 1.375em;
-    --yohaku-reading-section-gap: 1.875rem;
-  }
   .vp-doc th,
   .vp-doc td {
     padding: 10px 12px;
@@ -312,7 +298,6 @@ button {
 @media (max-width: 640px) {
   :root {
     --yohaku-reading-gutter: 1.25rem;
-    --yohaku-reading-heading-size: 1.25em;
   }
 }
 
@@ -324,9 +309,6 @@ button {
     animation: none !important;
     transition: none !important;
   }
-  .hero-action,
-  .featured-story,
-  .post-card,
   .archive-year a svg,
   .post-link .post-arrow,
   .nav-link .nav-arrow {
