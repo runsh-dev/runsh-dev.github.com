@@ -1,0 +1,21 @@
+docs/posts/2026/20261101.md
+  s_e01bc3a382a9f5::t_61a24cb66714e8 1-28
+docs/posts/2026/20261026.md
+  s_e01bc3a382a9f5::t_ccdf3a9136ed9f 1-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.52-trip",
+  "base_commit_sha": "2c986e4a90be92936f4d509fe26145586fc51b90",
+  "prompts": {},
+  "sessions": {
+    "s_e01bc3a382a9f5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fc832b5d-6445-434a-ba75-22e4ba3ddee1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "itsLink <okwfeng@gmail.com>"
+    }
+  }
+}
