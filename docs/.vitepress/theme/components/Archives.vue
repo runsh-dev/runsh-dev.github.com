@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import { withBase } from "vitepress";
-import VPIconArrowRight from "vitepress/dist/client/theme-default/components/icons/VPIconArrowRight.vue";
 import { getPostsByYear } from "../utils";
 import { usePosts } from "../post";
 
@@ -13,30 +12,21 @@ const total = computed(() =>
 
 <template>
   <main class="archives">
-    <header class="archives-header">
-      <div>
-        <p>ARCHIVE · {{ total }} POSTS</p>
-        <h1>写给时间的记录。</h1>
-      </div>
-      <span>文章归档 · 按年份慢慢翻阅</span>
-    </header>
+    <h1 class="page-title">Archive</h1>
+    <p class="motto">{{ total }} posts</p>
 
     <section
       v-for="item in filteredPosts"
       :key="item.year"
-      class="archive-year"
       :aria-labelledby="`year-${item.year}`"
     >
-      <h2 :id="`year-${item.year}`">{{ item.year }}</h2>
-      <ul>
+      <h2 :id="`year-${item.year}`" class="archive-year">{{ item.year }}</h2>
+      <ul class="archive-list">
         <li v-for="subItem in item.data" :key="subItem.url">
-          <a :href="withBase(subItem.url)">
-            <time :datetime="subItem.date.defaultDate">
-              {{ subItem.date.defaultDate.slice(5) }}
-            </time>
-            <span>{{ subItem.title }}</span>
-            <VPIconArrowRight aria-hidden="true" />
-          </a>
+          <time :datetime="subItem.date.defaultDate">
+            {{ subItem.date.defaultDate.slice(5) }}
+          </time>
+          <a :href="withBase(subItem.url)">{{ subItem.title }}</a>
         </li>
       </ul>
     </section>
@@ -45,151 +35,84 @@ const total = computed(() =>
 
 <style scoped>
 .archives {
-  width: min(100% - 40px, 880px);
+  width: min(100% - 3.5rem, 60.5rem);
   margin: 0 auto;
-  padding: 80px 0 104px;
+  padding: 3rem 0 6rem;
 }
 
-.archives-header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 32px;
-  margin-bottom: 72px;
-  border-bottom: 1px solid var(--yohaku-border);
-  padding-bottom: 28px;
-}
-
-.archives-header p {
-  margin: 0 0 10px;
-  font-family: var(--vp-font-family-base);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  color: var(--yohaku-link-color);
-}
-
-.archives-header h1 {
-  margin: 0;
-  font-family: var(--content-container-font-family-base);
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 650;
-  letter-spacing: -0.04em;
-  line-height: 1.4;
+.page-title {
+  margin: 0 0 0.75rem;
+  font: 700 2.625rem/1.2 var(--journal-font-family);
+  letter-spacing: -0.6px;
   color: var(--yohaku-neutral-10);
 }
 
-.archives-header > span {
-  padding-bottom: 4px;
-  font-size: 0.875rem;
+.motto {
+  margin: 0 0 3.5rem;
+  font-size: 0.8125rem;
+  letter-spacing: 2px;
   color: var(--yohaku-neutral-6);
 }
 
 .archive-year {
-  display: grid;
-  grid-template-columns: 120px minmax(0, 1fr);
-  gap: 32px;
-  margin-top: 60px;
-}
-
-.archive-year h2 {
-  position: sticky;
-  top: 104px;
-  align-self: start;
-  margin: 0;
-  font-family: var(--content-container-font-family-base);
-  font-size: 24px;
-  font-weight: 600;
+  margin: 3rem 0 1.125rem;
+  font: 700 1.625rem/1.2 var(--journal-font-latin);
   color: var(--yohaku-neutral-10);
 }
 
-.archive-year ul {
-  overflow: hidden;
-  border: 1px solid var(--yohaku-border);
-  border-radius: 1rem;
-  background: var(--yohaku-neutral-1);
+section:first-of-type .archive-year {
+  margin-top: 0;
+}
+
+.archive-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.archive-year li {
-  border-bottom: 1px solid var(--yohaku-border);
-}
-.archive-year li:last-child {
-  border-bottom: 0;
+.archive-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 0.625rem 0;
 }
 
-.archive-year a {
-  display: grid;
-  grid-template-columns: 56px minmax(0, 1fr) 18px;
-  gap: 18px;
-  align-items: center;
-  padding: 18px 20px;
-  color: var(--yohaku-neutral-9);
+.archive-list time {
+  flex: 0 0 auto;
+  width: 3.25rem;
+  font: 400 0.8125rem/1 var(--journal-font-latin);
+  letter-spacing: 1px;
+  font-variant-numeric: tabular-nums;
+  color: var(--yohaku-neutral-5);
+}
+
+.archive-list a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--yohaku-neutral-8);
   text-decoration: none;
 }
 
-.archive-year a:hover {
-  color: var(--yohaku-link-hover);
-  background: var(--yohaku-accent-soft);
-}
-.archive-year a:active {
-  background: var(--yohaku-neutral-2);
-}
-.archive-year a:focus-visible {
-  outline-offset: -3px;
+@media (hover: hover) {
+  .archive-list a:hover {
+    color: #6f9a61;
+  }
 }
 
-.archive-year time {
-  font-family: var(--vp-font-family-base);
-  font-size: 0.8125rem;
-  color: var(--yohaku-neutral-6);
-}
-
-.archive-year a > span {
-  overflow-wrap: anywhere;
-  font-family: var(--content-container-font-family-base);
-  font-size: 1.0625rem;
-  line-height: 1.8;
-}
-
-.archive-year svg {
-  fill: currentColor;
-  width: 16px;
-  height: 16px;
-  color: var(--yohaku-neutral-5);
-  transition: transform 0.2s ease;
-}
-
-.archive-year a:hover svg {
-  transform: translateX(3px);
-  color: var(--yohaku-link-hover);
-}
-
-@media (max-width: 640px) {
+@media (max-width: 700px) {
   .archives {
-    width: min(100% - 32px, 880px);
-    padding-top: 64px;
+    width: calc(100% - 2.25rem);
+    padding-top: 2rem;
   }
 
-  .archives-header {
-    display: block;
-    margin-bottom: 48px;
+  .page-title {
+    font-size: 2.125rem;
   }
 
-  .archives-header > span {
-    display: block;
-    margin-top: 14px;
-  }
-
-  .archive-year {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 48px;
-  }
-
-  .archive-year h2 {
-    position: static;
+  .archive-list li {
+    gap: 1rem;
   }
 }
 </style>

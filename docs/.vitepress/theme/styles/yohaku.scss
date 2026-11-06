@@ -51,6 +51,11 @@ button {
   text-align: start;
 }
 
+// Dark mode: body copy one step softer than headings, as on blog.polebug.com.
+.dark .vp-doc {
+  color: var(--yohaku-neutral-8);
+}
+
 .vp-doc p,
 .vp-doc summary {
   margin: 0 0 var(--yohaku-reading-paragraph-gap);
@@ -309,7 +314,6 @@ button {
     animation: none !important;
     transition: none !important;
   }
-  .archive-year a svg,
   .post-link .post-arrow,
   .nav-link .nav-arrow {
     transform: none !important;
