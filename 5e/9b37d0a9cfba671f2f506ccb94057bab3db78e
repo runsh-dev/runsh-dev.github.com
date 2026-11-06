@@ -1,0 +1,25 @@
+docs/.vitepress/theme/styles/vars.scss
+  s_e01bc3a382a9f5::t_2710955758e91c 110-117
+docs/.vitepress/theme/README.md
+  s_e01bc3a382a9f5::t_f6fdc2f751147f 8
+docs/.vitepress/theme/styles/yohaku.scss
+  s_e01bc3a382a9f5::t_4043207b76f72b 54-58
+docs/.vitepress/theme/components/Archives.vue
+  s_e01bc3a382a9f5::t_2402bb770c2365 15-16,23-24,26-29,38,40,43-46,50-53,58-60,63-64,67,73-77,80-86,89-90,92-95,98-101,104,106-107,110-111,114-115
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.52-trip",
+  "base_commit_sha": "5e9b37d0a9cfba671f2f506ccb94057bab3db78e",
+  "prompts": {},
+  "sessions": {
+    "s_e01bc3a382a9f5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fc832b5d-6445-434a-ba75-22e4ba3ddee1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "itsLink <okwfeng@gmail.com>"
+    }
+  }
+}
