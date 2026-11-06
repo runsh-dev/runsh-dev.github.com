@@ -1,0 +1,19 @@
+.claude/launch.json
+  s_e01bc3a382a9f5::t_a6b9cf61f03f8a 1-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.52-trip",
+  "base_commit_sha": "096693687443afd7f3096cada2b432a2f054f454",
+  "prompts": {},
+  "sessions": {
+    "s_e01bc3a382a9f5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fc832b5d-6445-434a-ba75-22e4ba3ddee1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "itsLink <okwfeng@gmail.com>"
+    }
+  }
+}
