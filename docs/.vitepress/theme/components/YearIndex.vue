@@ -77,9 +77,19 @@ const nextYearPostsCount = computed(() => {
 // 获取当前目录下的所有文章
 const dirPosts = computed(() => {
   const dir = currentDir.value;
+  const targetCategory = frontmatter.value.category;
 
   if (isAllDir.value) return posts;
-  return posts.filter((post) => post.url?.includes(`/posts/${dir}/`));
+  return posts.filter((post) => {
+    if (post.url?.includes(`/posts/${dir}/`)) return true;
+    if (targetCategory && Array.isArray(post.categories)) {
+      return post.categories.includes(targetCategory);
+    }
+    if (targetCategory && typeof post.categories === "string") {
+      return post.categories === targetCategory;
+    }
+    return false;
+  });
 });
 
 // 格式化日期
@@ -95,7 +105,9 @@ const formatDate = (date: {
 <template>
   <div class="year-index">
     <header class="year-header">
-      <p class="eyebrow">COLLECTION · {{ isAllDir ? "ALL" : currentDir }}</p>
+      <p class="eyebrow">
+        COLLECTION · {{ isAllDir ? "ALL" : currentDir.toUpperCase() }}
+      </p>
       <h1 class="title">{{ frontmatter.title || currentDir }}</h1>
       <p class="description" v-if="frontmatter.description">
         {{ frontmatter.description }}

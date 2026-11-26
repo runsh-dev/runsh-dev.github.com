@@ -11,7 +11,7 @@ const props = withDefaults(
   },
 );
 
-const { frontmatter } = useData();
+const { frontmatter, page } = useData();
 
 const title = computed(() => frontmatter.value.title);
 const subtitle = computed(() => frontmatter.value.subtitle);
@@ -30,6 +30,12 @@ const category = computed(() => {
   if (typeof categories === "string" && categories) return categories;
   return tags.value[0] || "随笔";
 });
+const categoryLink = computed(() => {
+  if (category.value === "账单信息") return "/posts/bills/";
+  const match = page.value.relativePath.match(/^posts\/([^/]+)\//);
+  if (match && !/^\d{4}$/.test(match[1])) return `/posts/${match[1]}/`;
+  return "";
+});
 const author = computed(() => frontmatter.value.author || "RUNSH");
 const authorInitial = computed(() => author.value.slice(0, 1).toUpperCase());
 const readingTime = computed(() => frontmatter.value.readingTime || 1);
@@ -41,7 +47,13 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
       ><span aria-hidden="true">←</span> 所有文章</a
     >
     <div v-if="props.isPost" class="post-meta">
-      <span class="post-category">{{ category }}</span>
+      <a
+        v-if="categoryLink"
+        class="post-category"
+        :href="withBase(categoryLink)"
+        >{{ category }}</a
+      >
+      <span v-else class="post-category">{{ category }}</span>
       <time v-if="date" :datetime="date">{{ displayDate }}</time>
       <span>约 {{ readingTime }} 分钟</span>
     </div>
@@ -124,6 +136,11 @@ const readingTime = computed(() => frontmatter.value.readingTime || 1);
 
 .post-category {
   color: var(--yohaku-link-color);
+  text-decoration: none;
+}
+
+a.post-category:hover {
+  color: var(--yohaku-link-hover);
 }
 
 .article-eyebrow {

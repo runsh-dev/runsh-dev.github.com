@@ -119,7 +119,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: "文章", link: "/articles", activeMatch: '^/(articles|posts)/?' },
+      { text: "文章", link: "/articles", activeMatch: '^/(articles|posts/(?!bills(?:/|$)))' },
+      { text: "账单信息", link: "/posts/bills/", activeMatch: '^/posts/bills(?:/|$)' },
 	    { text: "实验室", link: "/lab" },
       { text: '关于', link: '/about' }
     ],

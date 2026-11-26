@@ -217,6 +217,59 @@ button {
 .vp-doc .custom-block > :last-child {
   margin-bottom: 0;
 }
+
+.vp-doc .bill-stage-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: stretch;
+  margin: 1.8em 0;
+  font-family: var(--vp-font-family-base);
+}
+.vp-doc .bill-stage-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.125rem;
+  border: 1px solid var(--yohaku-border);
+  border-radius: 0.75rem;
+  background: var(--yohaku-neutral-1);
+}
+.vp-doc .bill-stage-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--yohaku-neutral-6);
+}
+.vp-doc .bill-stage-card strong {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--yohaku-neutral-10);
+}
+.vp-doc .bill-stage-metric {
+  font-family: var(--journal-font-latin);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--yohaku-accent);
+}
+.vp-doc .bill-stage-desc {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--yohaku-neutral-7);
+}
+.vp-doc .bill-stage-arrow {
+  align-self: center;
+  color: var(--yohaku-neutral-5);
+  font-size: 1rem;
+}
+@media (max-width: 820px) {
+  .vp-doc .bill-stage-flow {
+    grid-template-columns: 1fr;
+    gap: 0.625rem;
+  }
+  .vp-doc .bill-stage-arrow {
+    display: none;
+  }
+}
 .vp-doc div[class*="language-"] {
   margin: 1.8em 0;
   letter-spacing: normal;

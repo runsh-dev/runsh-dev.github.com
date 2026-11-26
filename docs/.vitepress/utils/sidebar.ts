@@ -151,8 +151,11 @@ function generateAllPostsSidebar(): SidebarItem[] {
     const items = generateSidebarItems(dirPath, `/posts/${dir}/`)
     
     if (items.length > 0) {
+      const label = /^\d{4}$/.test(dir)
+        ? dir
+        : getFileTitle(join(dirPath, 'index.md'), dir)
       sidebarItems.push({
-        text: dir,
+        text: label,
         collapsed: true,
         items: items
       })
